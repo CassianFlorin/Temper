@@ -118,10 +118,12 @@ class Emitter:
         self.g = g
         # 输入格:运行时可被覆写的字面量格(优化器据此决定什么不可折叠)
         self.inputs = inputs or set()
-        # 全部非空格 -> 槽下标
+        # 全部非空格 -> 槽下标;声明为输入的空格也分配槽位(如鸣金虹
+        # 半接线的 期望!C21),否则引用处会被编译成写不进值的 null
         self.slot: dict[tuple[str, str], int] = {}
-        for key in list(g.values) + list(g.nodes):
-            self.slot[key] = len(self.slot)
+        for key in list(g.values) + list(g.nodes) + sorted(self.inputs):
+            if key not in self.slot:
+                self.slot[key] = len(self.slot)
         self.ranges: dict[tuple[str, int, int, int, int], str] = {}
         self.range_defs: list[str] = []
 
@@ -226,20 +228,41 @@ class Emitter:
 
     # -- 整体生成
 
+    def literal_lines(self) -> list[str]:
+        out = []
+        for key, v in self.g.values.items():
+            i = self.slot[key]
+            if isinstance(v, bool):
+                out.append(f"x[{i}]={'true' if v else 'false'};")
+            elif isinstance(v, (int, float)):
+                out.append(f"x[{i}]={v!r};")
+            elif isinstance(v, str):
+                out.append(f"x[{i}]={json.dumps(v, ensure_ascii=False)};")
+            else:  # 日期等,语料中仅更新日志出现且无公式引用
+                out.append(f"x[{i}]={json.dumps(str(v), ensure_ascii=False)};")
+        return out
+
+    def topo_statements(self) -> list[str]:
+        return [
+            f"x[{self.slot[key]}]={self.js(self.g.nodes[key].ast, self.g.nodes[key].sheet)};"
+            for key in self.g.topo
+        ]
+
+    def chunk_lines(self, stmts: list[str], size: int = 500) -> list[str]:
+        chunks = [stmts[i:i + size] for i in range(0, len(stmts), size)]
+        out = [
+            f"function C{ci}(){{\n" + "\n".join(chunk) + "\n}"
+            for ci, chunk in enumerate(chunks)
+        ]
+        out.append(
+            "function EVAL(){" + "".join(f"C{ci}();" for ci in range(len(chunks))) + "}"
+        )
+        return out
+
     def emit(self) -> str:
         g = self.g
         lines = [RUNTIME, f"const x=new Array({len(self.slot)}).fill(null);"]
-
-        for key, v in g.values.items():
-            i = self.slot[key]
-            if isinstance(v, bool):
-                lines.append(f"x[{i}]={'true' if v else 'false'};")
-            elif isinstance(v, (int, float)):
-                lines.append(f"x[{i}]={v!r};")
-            elif isinstance(v, str):
-                lines.append(f"x[{i}]={json.dumps(v, ensure_ascii=False)};")
-            else:  # 日期等,语料中仅更新日志出现且无公式引用
-                lines.append(f"x[{i}]={json.dumps(str(v), ensure_ascii=False)};")
+        lines.extend(self.literal_lines())
 
         # 输入覆写钩子:node argv[2] 传 JSON {"表!坐标": 值} 可改写输入格,
         # 供等价性模糊测试与将来的求解器注入面板数据
@@ -255,18 +278,7 @@ class Emitter:
             # 直线代码分块:避免 12k 闭包的逐个调用开销,也避免单个
             # 超大函数体让 V8 放弃优化。整块 try:金标准已证零错误,
             # 任何异常都是生成缺陷,响亮失败即可。
-            stmts = [
-                f"x[{self.slot[key]}]={self.js(g.nodes[key].ast, g.nodes[key].sheet)};"
-                for key in g.topo
-            ]
-            chunks = [stmts[i:i + 500] for i in range(0, len(stmts), 500)]
-            body = [
-                f"function C{ci}(){{\n" + "\n".join(chunk) + "\n}"
-                for ci, chunk in enumerate(chunks)
-            ]
-            body.append(
-                "function EVAL(){" + "".join(f"C{ci}();" for ci in range(len(chunks))) + "}"
-            )
+            body = self.chunk_lines(self.topo_statements())
             body.append('try{EVAL();}catch(e){console.error("EVAL 异常:",e);process.exit(3);}')
         else:
             body = []

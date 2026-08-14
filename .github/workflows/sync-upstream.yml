@@ -68,6 +68,13 @@ jobs:
         working-directory: scripts/excel_codegen
         run: python scan_inputs.py
 
+      - name: 运行时模块构建 + 接线验收
+        if: steps.sync.outputs.changed == 'true'
+        working-directory: scripts/excel_codegen
+        run: |
+          python build_runtime.py
+          python verify_runtime.py
+
       - name: 提交 manifest 与输入格摘要
         if: steps.sync.outputs.changed == 'true'
         run: |
