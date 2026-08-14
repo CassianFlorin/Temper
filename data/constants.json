@@ -5,11 +5,20 @@
     "source": "https://yysls.leoq7.com/assets/js/generated-calc-metadata.js",
     "sourceUpstream": "https://www.h9dh.cn/ (社区 xlsx 计算器)",
     "sourceSiteUpdateTime": "2026年8月12日 19:37:37",
-    "note": "满值与承音值逐条核对无误。流派定义中的 set/weapons 取自各流派计算器的默认值，代表该流派主流选择，非可选项全集。"
+    "note": "满值与承音值逐条核对无误。流派定义中的 set/weapons 取自各流派计算器的默认值，代表该流派主流选择，非可选项全集。",
+    "verifiedAt": "2026-08-14",
+    "verifiedAgainst": [
+      "upstream/破竹鸢110阶竞速轴属性毕业率进阶计算器2.5.xlsx",
+      "upstream/裂石威110阶竞速轴属性毕业率进阶计算器2.3.xlsx",
+      "upstream/鸣金虹110阶竞速轴属性毕业率进阶计算器1.3.xlsx",
+      "upstream/牵丝霖110阶竞速轴属性毕业率进阶计算器1.1.xlsx",
+      "upstream/DIY计算器0.9.7.xlsx"
+    ],
+    "verifiedNote": "上列 4 份流派 xlsx 的 baseline/useTime/baselineDps/set/weapons/心法候选与本文件逐位一致（毕业率分母硬编码在各表 期望!I16 公式中）。其余 6 流派仍是 leoq7 转录值，未对 xlsx 复核，但 4/4 全中说明转录可信。"
   },
 
   "chengyinCoefficient": 0.94,
-  "chengyinNote": "承音后满值 = 满值 × 0.94，二位小数取整。已逐条核对全部 33 项，系数统一。不需要存第二张表。",
+  "chengyinNote": "承音后满值 = 满值 × 0.94，二位小数取整。已逐条核对全部 33 项，系数统一。不需要存第二张表。2026-08-14 用 DIY计算器0.9.7 的满值/承音对照表（DIY!W3:Y24，21 项）复核：全部等于 满值×0.94 后按两位小数四舍五入（百分比词条按百分数两位小数），系数成立。",
 
   "maxValues": {
     "最大外功攻击": 121.4,
@@ -47,6 +56,8 @@
     "对玩家单位增效": 5.1,
     "全武学增效": 4.9
   },
+
+  "maxValuesNote": "2026-08-14 对照 DIY计算器0.9.7 的参考数值表核对：劲/敏/势 76.8、大小外攻 121.4、五系属攻 68.8、精准 12.4、会心 14.0、会意 7.0、武学增效 9.8、奇术增伤 15.4、首领增 5.1、全武增 4.9 全部一致。仅「对玩家单位增效 5.1」在 DIY 表中无对应行（PvP 词条），未能复核。",
 
   "elements": ["鸣金", "裂石", "牵丝", "破竹", "无相"],
 
@@ -107,7 +118,7 @@
       "calcVersion": "2.3", "calcUpdateTime": "2026年8月12日 19:37:28",
       "baseline": 14350166.0127175, "useTime": 101.4, "baselineDps": 141520.374878871,
       "xinfaInputs": [],
-      "_warning": "上游 metadata 中 裂石威 存在于 flowIds/classDefaultValues，但缺失于 flowClassFields / flowClassDefaultValues。接 codegen 时需确认其字段映射是否走通用 classFields。"
+      "_resolved": "已对 裂石威2.3 xlsx 核实（2026-08-14）：表内确实没有可选心法输入，xinfaInputs 为空是对的，leoq7 metadata 缺字段只是如实反映上游。细节：易水歌1-5层在增益表中是无条件字面量（轴内永远生效）；期望!D2/B11 仍残留 IF($C$21=\"征人归\"/\"易水歌\") 判断，但该表 C21 被团队增益「翊」占位（本流派自身增益「威」行被删导致开关区上移），两个条件永远为假，属上游复制残留。另有流派特有开关 穿喉决(E18)/抗造大法(E19)，不属于心法体系。codegen 不能假设 C21 跨流派恒为第四心法格。"
     },
     {
       "id": 6, "key": "lsj", "name": "裂石钧", "element": "裂石",
@@ -124,7 +135,7 @@
       "calcVersion": "1.3", "calcUpdateTime": "2026年7月14日 18:09:27",
       "baseline": 13154257.2754926, "useTime": 109.1, "baselineDps": 120570.644138337,
       "xinfaInputs": [],
-      "_warning": "上游 classXinfaInputs 为空，但 flowClassDefaultValues 末位含「凝神章」。存在不一致，接 codegen 时需核对。"
+      "_resolved": "已对 鸣金虹1.3 xlsx 核实（2026-08-14）：「凝神章」三字在整份 xlsx 中不存在，leoq7 的该默认值无法溯源到上游，xinfaInputs 为空与 xlsx 实际暴露的输入一致。细节：易水歌机制在表内是半接线状态——增益表 易水歌1-5层 行以 IF(期望!$C$21=\"易水歌\") 门控，但 期望!C21 是空格（无标签无值，条件恒假）；武学奇术表虽有「易水歌6重」技能，当前轴中对应行均为 N/a 占位。codegen 时 C21 应作为可选输入暴露（填「易水歌」即可激活整套 buff），并向上游作者确认预期默认值。"
     },
     {
       "id": 8, "key": "mjy", "name": "鸣金影", "element": "鸣金",
@@ -143,7 +154,7 @@
       "xinfaInputs": [
         { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
       ],
-      "_warning": "useTime 仅 15 秒、baseline 比其他流派低一个数量级。疑似上游用的是短轴或未完成的轴。用于毕业率分母前必须核实。"
+      "_resolved": "已对 牵丝霖1.1 xlsx 核实（2026-08-14）：15 秒是上游有意为之，非未完成。更新日志 0.1#4 原文「只计算最高爆发的15秒(不含气竭但是有铁花),心法为君易四怒」，期望!I8=15、总伤/DPS/毕业率分母(101313.33)与本文件逐位一致。作为本流派毕业率分母可以用；但该 baseline 与其他流派的百秒轴 DPS 不可横向比较，UI 上做流派间对比时必须排除或标注。"
     }
   ],
 
