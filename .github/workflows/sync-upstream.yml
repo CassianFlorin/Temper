@@ -1,9 +1,9 @@
-# 上游数据定时同步:h9dh.cn 出新表 -> 下载 -> 三道验收 -> 全绿才落地
+# 上游数据定时同步:h9dh.cn 出新表 -> 下载 -> 五道验收 -> 全绿落地 -> 部署
 #
 # 无变化的调度只发一次几 KB 的首页请求即退出,对上游站零打扰。
 # manifest 只在验收全绿后 commit;验收失败自动开 issue(带 label 去重)。
-# 部署作业默认关闭:web 应用就绪后,在仓库 Variables 设 DEPLOY_ENABLED=true
-# 并补上 Cloudflare secrets,替换掉占位构建步骤。
+# deploy 作业由仓库变量 DEPLOY_ENABLED 与 CLOUDFLARE_API_TOKEN /
+# CLOUDFLARE_ACCOUNT_ID 两个 secrets 支撑,发布到 Pages 项目 temper。
 
 name: sync-upstream
 
@@ -31,13 +31,13 @@ jobs:
     outputs:
       changed: ${{ steps.sync.outputs.changed }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
 
@@ -108,11 +108,11 @@ jobs:
     if: needs.sync.outputs.changed == 'true' && vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
       - name: 安装依赖
