@@ -112,8 +112,12 @@ _CMP = {"=": "EQ", ">": "GT", ">=": "GE", "<": "LT", "<=": "LE"}
 
 
 class Emitter:
-    def __init__(self, g: WorkbookGraph):
+    chunked = False  # True: 分块直线代码(OptimizingEmitter 用),False: 闭包表 + 逐格 try
+
+    def __init__(self, g: WorkbookGraph, inputs: set[tuple[str, str]] | None = None):
         self.g = g
+        # 输入格:运行时可被覆写的字面量格(优化器据此决定什么不可折叠)
+        self.inputs = inputs or set()
         # 全部非空格 -> 槽下标
         self.slot: dict[tuple[str, str], int] = {}
         for key in list(g.values) + list(g.nodes):
@@ -142,6 +146,22 @@ class Emitter:
 
     # -- 表达式编译
 
+    def _numeric(self, n: Node) -> bool:
+        """静态可证结果必为数值(JS number)的节点,算术处可跳过 N() 强转。"""
+        if isinstance(n, (Num, Pct, Un)):
+            return True
+        if isinstance(n, Bin):
+            return n.op in "+-*/^"
+        if isinstance(n, Paren):
+            return self._numeric(n.inner)
+        if isinstance(n, Call):
+            return n.name.upper() in ("SUM", "MIN", "MAX", "ROUNDUP")
+        return False
+
+    def _njs(self, n: Node, sheet: str) -> str:
+        s = self.js(n, sheet)
+        return s if self._numeric(n) else f"N({s})"
+
     def js(self, n: Node, sheet: str) -> str:
         if isinstance(n, Num):
             return n.text
@@ -152,9 +172,9 @@ class Emitter:
         if isinstance(n, Paren):
             return f"({self.js(n.inner, sheet)})"
         if isinstance(n, Un):
-            return f"({n.op}N({self.js(n.operand, sheet)}))"
+            return f"({n.op}{self._njs(n.operand, sheet)})"
         if isinstance(n, Pct):
-            return f"(N({self.js(n.operand, sheet)})/100)"
+            return f"({self._njs(n.operand, sheet)}/100)"
         if isinstance(n, Ref):
             span = resolve_ref(n, sheet, self.g.sheet_extent)
             _, r1, c1, r2, c2 = span
@@ -163,39 +183,44 @@ class Emitter:
                 return "null" if i < 0 else f"x[{i}]"
             return self.range_const(span)
         if isinstance(n, Bin):
+            # 注意:每个子树只编译一次,先编译再按需包 N() —— 若在此处
+            # 对子树重复调用 js(),深层嵌套公式会指数爆炸
+            if n.op in ("+", "-", "*", "/", "^"):
+                l, r = self._njs(n.left, sheet), self._njs(n.right, sheet)
+                op = "**" if n.op == "^" else n.op
+                return f"({l}{op}{r})"
             l, r = self.js(n.left, sheet), self.js(n.right, sheet)
             if n.op in _CMP:
                 return f"{_CMP[n.op]}({l},{r})"
             if n.op == "<>":
                 return f"(!EQ({l},{r}))"
-            if n.op in "+-*/":
-                return f"(N({l}){n.op}N({r}))"
-            if n.op == "^":
-                return f"(N({l})**N({r}))"
             if n.op == "&":
                 return f"(String({l})+String({r}))"
             raise ValueError(f"未知运算符 {n.op}")
         if isinstance(n, Call):
+            # 每个实参只编译一次(不预编译整表:MIN/MAX 走 _njs,重复
+            # 编译会导致子树被访问两次,统计失真且拖慢生成)
             name = n.name.upper()
-            a = [self.js(arg, sheet) for arg in n.args]
+            def a(k: int) -> str:
+                return self.js(n.args[k], sheet)
             if name == "IF":
-                return f"(B({a[0]})?{a[1]}:{a[2]})"
+                return f"(B({a(0)})?{a(1)}:{a(2)})"
             if name == "OR":
-                return "(" + "||".join(f"B({e})" for e in a) + ")"
+                return "(" + "||".join(f"B({self.js(arg, sheet)})" for arg in n.args) + ")"
             if name == "SUM":
-                return f"SUM({','.join(a)})"
+                return f"SUM({','.join(self.js(arg, sheet) for arg in n.args)})"
             if name == "MIN":
-                return f"Math.min({','.join(f'N({e})' for e in a)})"
+                return f"Math.min({','.join(self._njs(arg, sheet) for arg in n.args)})"
             if name == "MAX":
-                return f"Math.max({','.join(f'N({e})' for e in a)})"
+                return f"Math.max({','.join(self._njs(arg, sheet) for arg in n.args)})"
             if name == "VLOOKUP":
-                return f"VL({a[0]},{a[1]},{a[2]})"
+                return f"VL({a(0)},{a(1)},{a(2)})"
             if name == "_XLFN.XLOOKUP":
-                return f"XL({a[0]},{a[1]},{a[2]},{a[3]})"
+                return f"XL({a(0)},{a(1)},{a(2)},{a(3)})"
             if name == "IFERROR":
-                return f"IFERR(()=>({a[0]}),{a[1]})"
+                return f"IFERR(()=>({a(0)}),{a(1)})"
             if name == "ROUNDUP":
-                return f"ROUNDUP({a[0]},{a[1]})"
+                return f"ROUNDUP({a(0)},{a(1)})"
             raise ValueError(f"未实现的函数 {n.name}")
         raise ValueError(f"未知节点 {n!r}")
 
@@ -216,17 +241,47 @@ class Emitter:
             else:  # 日期等,语料中仅更新日志出现且无公式引用
                 lines.append(f"x[{i}]={json.dumps(str(v), ensure_ascii=False)};")
 
-        body = []
-        for key in g.topo:
-            n = g.nodes[key]
-            body.append(f"F.push([{self.slot[key]},()=>{self.js(n.ast, n.sheet)}]);")
+        # 输入覆写钩子:node argv[2] 传 JSON {"表!坐标": 值} 可改写输入格,
+        # 供等价性模糊测试与将来的求解器注入面板数据
+        slot_map = {f"{s}!{c}": self.slot[(s, c)] for s, c in sorted(self.inputs)}
+        lines.append(f"const SLOT={json.dumps(slot_map, ensure_ascii=False)};")
+        lines.append(
+            'const OVR=(typeof process!=="undefined"&&process.argv[2])'
+            '?JSON.parse(process.argv[2]):{};'
+            "for(const k in OVR){if(k in SLOT)x[SLOT[k]]=OVR[k];}"
+        )
+
+        if self.chunked:
+            # 直线代码分块:避免 12k 闭包的逐个调用开销,也避免单个
+            # 超大函数体让 V8 放弃优化。整块 try:金标准已证零错误,
+            # 任何异常都是生成缺陷,响亮失败即可。
+            stmts = [
+                f"x[{self.slot[key]}]={self.js(g.nodes[key].ast, g.nodes[key].sheet)};"
+                for key in g.topo
+            ]
+            chunks = [stmts[i:i + 500] for i in range(0, len(stmts), 500)]
+            body = [
+                f"function C{ci}(){{\n" + "\n".join(chunk) + "\n}"
+                for ci, chunk in enumerate(chunks)
+            ]
+            body.append(
+                "function EVAL(){" + "".join(f"C{ci}();" for ci in range(len(chunks))) + "}"
+            )
+            body.append('try{EVAL();}catch(e){console.error("EVAL 异常:",e);process.exit(3);}')
+        else:
+            body = []
+            for key in g.topo:
+                n = g.nodes[key]
+                body.append(f"F.push([{self.slot[key]},()=>{self.js(n.ast, n.sheet)}]);")
 
         lines.extend(self.range_defs)
-        lines.append("const F=[];")
+        if not self.chunked:
+            lines.append("const F=[];")
         lines.extend(body)
-        lines.append(
-            "for(const [i,fn] of F){try{x[i]=fn();}catch(e){x[i]={__err:String(e.excel||e)};}}"
-        )
+        if not self.chunked:
+            lines.append(
+                "for(const [i,fn] of F){try{x[i]=fn();}catch(e){x[i]={__err:String(e.excel||e)};}}"
+            )
         keys = {f"{s}!{c}": self.slot[(s, c)] for s, c in g.nodes}
         lines.append(f"const K={json.dumps(keys, ensure_ascii=False)};")
         lines.append(
