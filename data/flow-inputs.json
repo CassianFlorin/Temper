@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-14T05:18:45+00:00",
+    "generatedAt": "2026-08-14T05:51:23+00:00",
     "generator": "scripts/excel_codegen/scan_inputs.py",
     "note": "字段名 -> 期望/RD 单元格坐标。unmapped 必须为空或逐项有人工解释;新版式出现未认领格时先补规则再发布。"
   },
