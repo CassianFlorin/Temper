@@ -75,6 +75,16 @@ jobs:
           python build_runtime.py
           python verify_runtime.py
 
+      # 构建产物直接传给 deploy,deploy 不再重新下载上游 xlsx:
+      # 少一次对 h9dh.cn 的全量抓取,也少一个瞬时网络失败窗口
+      - name: 上传运行时模块产物
+        if: steps.sync.outputs.changed == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: flows
+          path: dist/flows/
+          retention-days: 3
+
       - name: 提交 manifest 与输入格摘要
         if: steps.sync.outputs.changed == 'true'
         run: |
@@ -115,15 +125,11 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
-      - name: 安装依赖
-        run: pip install -r scripts/excel_codegen/requirements.txt
-      - name: 拉取上游 xlsx(upstream/ 不进 git,按 manifest 现拉)
-        run: python scripts/sync_upstream.py --force
-      - name: 构建运行时模块并验收
-        working-directory: scripts/excel_codegen
-        run: |
-          python build_runtime.py
-          python verify_runtime.py
+      - name: 取 sync 作业的运行时模块产物
+        uses: actions/download-artifact@v8
+        with:
+          name: flows
+          path: dist/flows/
       - name: 组装站点
         run: python scripts/build_site.py
       - name: 部署 Cloudflare Pages

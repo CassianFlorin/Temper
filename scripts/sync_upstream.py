@@ -41,13 +41,13 @@ FIELDS = ("name", "version", "size", "updateDate", "updateTime", "url")
 def fetch(url: str, timeout: int = 60) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     last_err = None
-    for attempt in range(3):
+    for attempt in range(5):  # CI 出口到上游偶发读超时,多试几次
         try:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return resp.read()
         except Exception as e:  # noqa: BLE001 - 重试后统一抛出
             last_err = e
-            time.sleep(5 * (attempt + 1))
+            time.sleep(10 * (attempt + 1))
     raise RuntimeError(f"下载失败 {url}: {last_err}")
 
 
