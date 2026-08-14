@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temper · 燕云十六声毕业率计算</title>
+  <meta name="description" content="燕云十六声竞速毕业率计算器 Web 版。数据源自社区计算器(h9dh.cn),浏览器本地计算,无账号无上传。">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Temper</h1>
+      <span class="tagline">燕云十六声 · 毕业率计算</span>
+    </div>
+    <div class="flow-pick">
+      <label for="flow-select">流派</label>
+      <select id="flow-select" disabled><option>加载中…</option></select>
+      <button id="reset-btn" type="button" title="恢复该流派计算器的默认值">重置默认</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="inputs" id="inputs" aria-label="输入区">
+      <p class="hint">选择流派后,把游戏内面板数值抄进对应字段;所有计算都在你的浏览器里完成。</p>
+    </section>
+
+    <aside class="results" aria-label="结果区">
+      <div class="result-card main-result">
+        <span class="label">毕业率</span>
+        <span class="value" id="out-毕业率">—</span>
+      </div>
+      <div class="result-grid">
+        <div class="result-card"><span class="label">ADPS</span><span class="value" id="out-ADPS">—</span></div>
+        <div class="result-card"><span class="label">RDPS<small>(无拐)</small></span><span class="value" id="out-RDPS">—</span></div>
+        <div class="result-card"><span class="label">总伤</span><span class="value" id="out-总伤">—</span></div>
+        <div class="result-card"><span class="label">真气比例</span><span class="value" id="out-真气比例">—</span></div>
+      </div>
+      <div class="meta" id="meta-box" hidden>
+        <div>计算器版本 <b id="meta-version">—</b></div>
+        <div>上游抓取 <b id="meta-synced">—</b></div>
+        <div>模块生成 <b id="meta-generated">—</b></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <p>数值与竞速轴来自社区计算器(<a href="https://www.h9dh.cn/" rel="noopener" target="_blank">燕云小助手 h9dh.cn</a>,作者 BiliBili@片雲),本站仅做网页化呈现;结果随社区表格版本更新,不构成官方数据。无账号、无上传,输入只留在你的浏览器。</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
