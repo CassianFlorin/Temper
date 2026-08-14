@@ -1,0 +1,3839 @@
+{
+  "_meta": {
+    "generatedAt": "2026-08-14T05:18:45+00:00",
+    "generator": "scripts/excel_codegen/scan_inputs.py",
+    "note": "字段名 -> 期望/RD 单元格坐标。unmapped 必须为空或逐项有人工解释;新版式出现未认领格时先补规则再发布。"
+  },
+  "flows": {
+    "牵丝玉": {
+      "file": "牵丝玉110阶竞速轴属性毕业率进阶计算器1.4.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 2133.7,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 5409.5,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 63.5,
+          "cells": {
+            "期望": "D2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.最小攻击",
+          "kind": "number",
+          "default": 472,
+          "cells": {
+            "期望": "B5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.最大攻击",
+          "kind": "number",
+          "default": 945,
+          "cells": {
+            "期望": "C5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.穿透",
+          "kind": "number",
+          "default": 30,
+          "cells": {
+            "期望": "D5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最大攻击",
+          "kind": "number",
+          "default": 66,
+          "cells": {
+            "期望": "C7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.9969,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.7807,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.0895,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会心率",
+          "kind": "number",
+          "default": 0.133,
+          "cells": {
+            "期望": "B11"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "伞增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "扇增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0.2678,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "弹道定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.4,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 110,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "C22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "断石覆盖",
+          "kind": "text",
+          "default": "全蹭",
+          "cells": {
+            "期望": "F21"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "牵丝",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "烟柳",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "伞",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "扇",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {
+        "期望": [
+          {
+            "cell": "F26",
+            "value": 100
+          }
+        ]
+      }
+    },
+    "牵丝翊": {
+      "file": "牵丝翊110阶竞速轴属性毕业率进阶计算器2.1.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 4031.1,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 3144.7,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 58.4,
+          "cells": {
+            "期望": "D2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.伤害加成",
+          "kind": "number",
+          "default": 0.025,
+          "cells": {
+            "期望": "E2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.最小攻击",
+          "kind": "number",
+          "default": 492,
+          "cells": {
+            "期望": "B5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.最大攻击",
+          "kind": "number",
+          "default": 1397.8,
+          "cells": {
+            "期望": "C5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.穿透",
+          "kind": "number",
+          "default": 30,
+          "cells": {
+            "期望": "D5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E5"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 79.2,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.9859,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.7992,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.0929,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "鼓增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "扇增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "特殊技定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 100.8,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.樽",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D22",
+            "RD": "D22"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "第三心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "E22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "弦墨篇",
+          "cells": {
+            "期望": "E24"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "牵丝",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "裁云",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "鼓",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "扇",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "牵丝霖": {
+      "file": "牵丝霖110阶竞速轴属性毕业率进阶计算器1.1.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 3839.7,
+          "cells": {
+            "期望": "B2",
+            "RD": "B2"
+          },
+          "block": "面板",
+          "rd_default": 3347.5
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 3020.3,
+          "cells": {
+            "期望": "C2",
+            "RD": "C2"
+          },
+          "block": "面板",
+          "rd_default": 2617.7
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 58.4,
+          "cells": {
+            "期望": "D2",
+            "RD": "D2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.伤害加成",
+          "kind": "number",
+          "default": 0.028,
+          "cells": {
+            "期望": "E2",
+            "RD": "E2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.牵丝.最小攻击",
+          "kind": "number",
+          "default": 472,
+          "cells": {
+            "期望": "B5",
+            "RD": "B5"
+          },
+          "block": "面板",
+          "rd_default": 490.8
+        },
+        {
+          "name": "面板.牵丝.最大攻击",
+          "kind": "number",
+          "default": 1357.8,
+          "cells": {
+            "期望": "C5",
+            "RD": "C5"
+          },
+          "block": "面板",
+          "rd_default": 1042.4
+        },
+        {
+          "name": "面板.牵丝.穿透",
+          "kind": "number",
+          "default": 30,
+          "cells": {
+            "期望": "D5",
+            "RD": "D5"
+          },
+          "block": "面板",
+          "rd_default": 29.6
+        },
+        {
+          "name": "面板.牵丝.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E5",
+            "RD": "E5"
+          },
+          "block": "面板",
+          "rd_default": 0.148
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.979,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.7903,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.0895,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会心率",
+          "kind": "number",
+          "default": 0.092,
+          "cells": {
+            "期望": "B11"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "伞增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "扇增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0.2678,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.4,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 15,
+          "cells": {
+            "期望": "I8",
+            "RD": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "C22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "牵丝",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "撼天",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "伞",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "扇",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "破竹尘": {
+      "file": "破竹尘110阶竞速轴属性毕业率进阶计算器2.1.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 3982.6,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 3071.9,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 63.5,
+          "cells": {
+            "期望": "D2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.最小攻击",
+          "kind": "number",
+          "default": 492,
+          "cells": {
+            "期望": "B6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.最大攻击",
+          "kind": "number",
+          "default": 1397.8,
+          "cells": {
+            "期望": "C6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.穿透",
+          "kind": "number",
+          "default": 30,
+          "cells": {
+            "期望": "D6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 79.2,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.981,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.8049,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.0929,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "伞增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "绳镖增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "回旋伞定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 101,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.翊",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D21",
+            "RD": "D21"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "团队增益.樽",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D22",
+            "RD": "D22"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "第三心法",
+          "kind": "text",
+          "default": "大唐歌",
+          "cells": {
+            "期望": "E22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "E24"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "破竹",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "连星",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "伞",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "绳镖",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "破竹风": {
+      "file": "破竹风110阶竞速轴属性毕业率进阶计算器1.1.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 3903.8,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 2944.8,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 63.5,
+          "cells": {
+            "期望": "D2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.最小攻击",
+          "kind": "number",
+          "default": 472,
+          "cells": {
+            "期望": "B6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.最大攻击",
+          "kind": "number",
+          "default": 1357.8,
+          "cells": {
+            "期望": "C6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.穿透",
+          "kind": "number",
+          "default": 30,
+          "cells": {
+            "期望": "D6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 66,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.9965,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.7046,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.0895,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会心率",
+          "kind": "number",
+          "default": 0.087,
+          "cells": {
+            "期望": "B11"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心伤害加成",
+          "kind": "number",
+          "default": 0.544,
+          "cells": {
+            "期望": "B13"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "双刀增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "绳镖增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "轻击定音",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "老鼠定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.4,
+          "cells": {
+            "期望": "B23",
+            "RD": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B24",
+            "RD": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B25",
+            "RD": "B25"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 109.2,
+          "cells": {
+            "期望": "I8",
+            "RD": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "C22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "首领行为\n逻辑",
+          "kind": "text",
+          "default": "全配合",
+          "cells": {
+            "期望": "F21"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "破竹",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "燕归",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "双刀",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "绳镖",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "破竹鸢": {
+      "file": "破竹鸢110阶竞速轴属性毕业率进阶计算器2.5.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 3994.7,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 3071.9,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.最小攻击",
+          "kind": "number",
+          "default": 492,
+          "cells": {
+            "期望": "B6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.最大攻击",
+          "kind": "number",
+          "default": 1397.8,
+          "cells": {
+            "期望": "C6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.穿透",
+          "kind": "number",
+          "default": 30,
+          "cells": {
+            "期望": "D6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.破竹.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E6"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 79.2,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 1.0063,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.7706,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.0929,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心伤害加成",
+          "kind": "number",
+          "default": 0.54,
+          "cells": {
+            "期望": "B13"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "拳甲增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "绳镖增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "蓄力技定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 100.8,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "机制时间",
+          "kind": "number",
+          "default": 50,
+          "cells": {
+            "期望": "I18"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.翊",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D21",
+            "RD": "D21"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "团队增益.樽",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D22",
+            "RD": "D22"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "第三心法",
+          "kind": "text",
+          "default": "断石之构",
+          "cells": {
+            "期望": "E22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "E24"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "高伤取值",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "F18",
+            "RD": "F18"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "破竹",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "撼天",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "拳甲",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "绳镖",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "裂石威": {
+      "file": "裂石威110阶竞速轴属性毕业率进阶计算器2.3.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 1858.7,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 6040.8,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.最小攻击",
+          "kind": "number",
+          "default": 533.4,
+          "cells": {
+            "期望": "B4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.最大攻击",
+          "kind": "number",
+          "default": 1067.7,
+          "cells": {
+            "期望": "C4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.穿透",
+          "kind": "number",
+          "default": 42,
+          "cells": {
+            "期望": "D4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 79.2,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最大攻击",
+          "kind": "number",
+          "default": 92.4,
+          "cells": {
+            "期望": "C7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 1.0116,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.5524,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.1524,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "陌刀增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "枪增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "蓄力技定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 101.4,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.翊",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D21",
+            "RD": "D21"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "团队增益.樽",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D22",
+            "RD": "D22"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "穿喉决",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F18",
+            "RD": "F18"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "抗造大法",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F19",
+            "RD": "F19"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "裂石",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "时雨",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "陌刀",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "枪",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "裂石钧": {
+      "file": "裂石钧110阶竞速轴属性毕业率进阶计算器2.1.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 3994.7,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 3071.9,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.最小攻击",
+          "kind": "number",
+          "default": 512.7,
+          "cells": {
+            "期望": "B4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.最大攻击",
+          "kind": "number",
+          "default": 1370.3,
+          "cells": {
+            "期望": "C4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.穿透",
+          "kind": "number",
+          "default": 36,
+          "cells": {
+            "期望": "D4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.裂石.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E4"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 79.2,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.9859,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.7992,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.0929,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心伤害加成",
+          "kind": "number",
+          "default": 0.54,
+          "cells": {
+            "期望": "B13"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.35,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "陌刀增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "横刀增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "蓄力技定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 101.7,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "机制时间",
+          "kind": "number",
+          "default": 50,
+          "cells": {
+            "期望": "I18"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20",
+            "RD": "D20"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.翊",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D21",
+            "RD": "D21"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "团队增益.樽",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D22",
+            "RD": "D22"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "E22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "沧海帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "裂石",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "断岳",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "陌刀",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "横刀",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "鸣金影": {
+      "file": "鸣金影110阶竞速轴属性毕业率进阶计算器1.5.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 1743.2,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 6189.6,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 63.5,
+          "cells": {
+            "期望": "D2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.最小攻击",
+          "kind": "number",
+          "default": 472,
+          "cells": {
+            "期望": "B3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.最大攻击",
+          "kind": "number",
+          "default": 945,
+          "cells": {
+            "期望": "C3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.穿透",
+          "kind": "number",
+          "default": 30,
+          "cells": {
+            "期望": "D3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 66,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最大攻击",
+          "kind": "number",
+          "default": 66,
+          "cells": {
+            "期望": "C7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.8271,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.1789,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.3929,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会心率",
+          "kind": "number",
+          "default": 0.046,
+          "cells": {
+            "期望": "B11"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0.023,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心伤害加成",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "B13"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.402,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "剑增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "枪增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0.2678,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "流血定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.4,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 110.2,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "机制时间",
+          "kind": "number",
+          "default": 9,
+          "cells": {
+            "期望": "I20"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.虹",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D18",
+            "RD": "D18"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "易水歌",
+          "cells": {
+            "期望": "C22"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "秋瞑帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "鸣金",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "飞隼",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "剑",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "枪",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    },
+    "鸣金虹": {
+      "file": "鸣金虹110阶竞速轴属性毕业率进阶计算器1.3.xlsx",
+      "fields": [
+        {
+          "name": "面板.外功.最小攻击",
+          "kind": "number",
+          "default": 1722.4,
+          "cells": {
+            "期望": "B2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.最大攻击",
+          "kind": "number",
+          "default": 6332.4,
+          "cells": {
+            "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 63.5,
+          "cells": {
+            "期望": "D2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.最小攻击",
+          "kind": "number",
+          "default": 491.3,
+          "cells": {
+            "期望": "B3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.最大攻击",
+          "kind": "number",
+          "default": 983.5,
+          "cells": {
+            "期望": "C3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.穿透",
+          "kind": "number",
+          "default": 36,
+          "cells": {
+            "期望": "D3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.鸣金.伤害加成",
+          "kind": "number",
+          "default": 0.15,
+          "cells": {
+            "期望": "E3"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最小攻击",
+          "kind": "number",
+          "default": 66,
+          "cells": {
+            "期望": "B7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.无相.最大攻击",
+          "kind": "number",
+          "default": 66,
+          "cells": {
+            "期望": "C7"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "精准率",
+          "kind": "number",
+          "default": 0.8271,
+          "cells": {
+            "期望": "B8"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心率",
+          "kind": "number",
+          "default": 0.1789,
+          "cells": {
+            "期望": "B9"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意率",
+          "kind": "number",
+          "default": 0.3929,
+          "cells": {
+            "期望": "B10"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会心率",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B11"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "直接会意率",
+          "kind": "number",
+          "default": 0.023,
+          "cells": {
+            "期望": "B12"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会心伤害加成",
+          "kind": "number",
+          "default": 0.5,
+          "cells": {
+            "期望": "B13"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "会意伤害加成",
+          "kind": "number",
+          "default": 0.402,
+          "cells": {
+            "期望": "B14"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "全武增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B15"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "首领增",
+          "kind": "number",
+          "default": 0.0887,
+          "cells": {
+            "期望": "B16"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "剑增",
+          "kind": "number",
+          "default": 0.0852,
+          "cells": {
+            "期望": "B17"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "枪增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B18"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "单体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B19"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "群体奇术增",
+          "kind": "number",
+          "default": 0,
+          "cells": {
+            "期望": "B20"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "蓄力技定音",
+          "kind": "number",
+          "default": 0.32,
+          "cells": {
+            "期望": "B21"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "固伤加成",
+          "kind": "number",
+          "default": 0.4,
+          "cells": {
+            "期望": "B22"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成",
+          "kind": "number",
+          "default": 200,
+          "cells": {
+            "期望": "B23"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "食物加成#2",
+          "kind": "number",
+          "default": 400,
+          "cells": {
+            "期望": "B24"
+          },
+          "block": "标量"
+        },
+        {
+          "name": "副本天赋",
+          "kind": "number",
+          "default": 0.06,
+          "cells": {
+            "期望": "I5",
+            "RD": "I5"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "战斗时间",
+          "kind": "number",
+          "default": 109.1,
+          "cells": {
+            "期望": "I8"
+          },
+          "block": "怪物/杂项"
+        },
+        {
+          "name": "团队增益.威",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D16",
+            "RD": "D16"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.尘",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D17",
+            "RD": "D17"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.钧",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D19",
+            "RD": "D19"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.影",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D20"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "秋瞑帖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F16",
+            "RD": "F16"
+          },
+          "block": "开关"
+        },
+        {
+          "name": "所恨年年",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "F17",
+            "RD": "F17"
+          },
+          "block": "开关",
+          "rd_default": "×"
+        },
+        {
+          "name": "武学属性",
+          "kind": "text",
+          "default": "鸣金",
+          "cells": {
+            "期望": "G1",
+            "RD": "G1"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "套装",
+          "kind": "text",
+          "default": "玉斗",
+          "cells": {
+            "期望": "G2",
+            "RD": "G2"
+          },
+          "block": "属性/套装"
+        },
+        {
+          "name": "武器1",
+          "kind": "text",
+          "default": "剑",
+          "cells": {
+            "期望": "F4",
+            "RD": "F4"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "武器2",
+          "kind": "text",
+          "default": "枪",
+          "cells": {
+            "期望": "F5",
+            "RD": "F5"
+          },
+          "block": "武器"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": null,
+          "cells": {
+            "期望": "C21"
+          },
+          "block": "心法",
+          "note": "上游 1.3 半接线:C21 为无标签空格,增益表以 IF(期望!$C$21=\"易水歌\") 消费;填「易水歌」激活整套 buff"
+        }
+      ],
+      "unmapped": {},
+      "inert": {}
+    }
+  }
+}
