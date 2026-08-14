@@ -1,0 +1,157 @@
+{
+  "_meta": {
+    "capturedAt": "2026-08-14",
+    "tier": 110,
+    "source": "https://yysls.leoq7.com/assets/js/generated-calc-metadata.js",
+    "sourceUpstream": "https://www.h9dh.cn/ (社区 xlsx 计算器)",
+    "sourceSiteUpdateTime": "2026年8月12日 19:37:37",
+    "note": "满值与承音值逐条核对无误。流派定义中的 set/weapons 取自各流派计算器的默认值，代表该流派主流选择，非可选项全集。"
+  },
+
+  "chengyinCoefficient": 0.94,
+  "chengyinNote": "承音后满值 = 满值 × 0.94，二位小数取整。已逐条核对全部 33 项，系数统一。不需要存第二张表。",
+
+  "maxValues": {
+    "最大外功攻击": 121.4,
+    "最小外功攻击": 121.4,
+    "劲": 76.8,
+    "敏": 76.8,
+    "势": 76.8,
+    "最大鸣金攻击": 68.8,
+    "最小鸣金攻击": 68.8,
+    "最大裂石攻击": 68.8,
+    "最小裂石攻击": 68.8,
+    "最大牵丝攻击": 68.8,
+    "最小牵丝攻击": 68.8,
+    "最大破竹攻击": 68.8,
+    "最小破竹攻击": 68.8,
+    "最大无相攻击": 68.8,
+    "最小无相攻击": 68.8,
+    "单体类奇术增伤": 15.4,
+    "群体类奇术增伤": 15.4,
+    "会心率": 14.0,
+    "精准率": 12.4,
+    "指定武学增效": 9.8,
+    "剑武学增效": 9.8,
+    "枪武学增效": 9.8,
+    "伞武学增效": 9.8,
+    "扇武学增效": 9.8,
+    "绳标武学增效": 9.8,
+    "双刀武学增效": 9.8,
+    "陌刀武学增效": 9.8,
+    "横刀武学增效": 9.8,
+    "拳甲武学增效": 9.8,
+    "鼓武学增效": 9.8,
+    "会意率": 7.0,
+    "对首领单位增伤": 5.1,
+    "对玩家单位增效": 5.1,
+    "全武学增效": 4.9
+  },
+
+  "elements": ["鸣金", "裂石", "牵丝", "破竹", "无相"],
+
+  "weapons": ["剑", "枪", "伞", "扇", "绳标", "双刀", "陌刀", "横刀", "拳甲", "鼓"],
+
+  "flows": [
+    {
+      "id": 0, "key": "qsy", "name": "牵丝玉", "element": "牵丝",
+      "set": "烟柳", "weapons": ["伞", "扇"],
+      "calcVersion": "1.4", "calcUpdateTime": "2026年7月1日 23:17:42",
+      "baseline": 15127585.9560326, "useTime": 110.0, "baselineDps": 137523.508691205,
+      "xinfaInputs": [
+        { "field": "duanshi_xinfa", "label": "断石之构", "mode": "level_toggle", "default": "全蹭", "candidates": [] },
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+      ]
+    },
+    {
+      "id": 1, "key": "qsyi", "name": "牵丝翊", "element": "牵丝",
+      "set": "裁云", "weapons": ["鼓", "扇"],
+      "calcVersion": "2.1", "calcUpdateTime": "2026年8月12日 19:37:37",
+      "baseline": 10763814.2343509, "useTime": 100.8, "baselineDps": 106783.871372529,
+      "xinfaInputs": [
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "弦墨篇", "candidates": ["弦墨篇", "断石之构"] }
+      ]
+    },
+    {
+      "id": 2, "key": "pzc", "name": "破竹尘", "element": "破竹",
+      "set": "连星", "weapons": ["伞", "绳标"],
+      "calcVersion": "2.1", "calcUpdateTime": "2026年8月12日 19:37:30",
+      "baseline": 13394742.0408693, "useTime": 101.0, "baselineDps": 132621.208325439,
+      "xinfaInputs": [
+        { "field": "third_xinfa", "label": "第三心法", "mode": "dropdown", "default": "大唐歌", "candidates": ["大唐歌", "断石之构"] },
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "所恨年年"] }
+      ]
+    },
+    {
+      "id": 3, "key": "pzf", "name": "破竹风", "element": "破竹",
+      "set": "燕归", "weapons": ["双刀", "绳标"],
+      "calcVersion": "1.1", "calcUpdateTime": "2026年6月30日 13:25:22",
+      "baseline": 14311682.0898318, "useTime": 109.2, "baselineDps": 131059.359796995,
+      "xinfaInputs": [
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+      ]
+    },
+    {
+      "id": 4, "key": "pzy", "name": "破竹鸢", "element": "破竹",
+      "set": "撼天", "weapons": ["拳甲", "绳标"],
+      "calcVersion": "2.5", "calcUpdateTime": "2026年8月12日 19:37:35",
+      "baseline": 14482689.1885858, "useTime": 100.8, "baselineDps": 143677.472108986,
+      "xinfaInputs": [
+        { "field": "third_xinfa", "label": "第三心法", "mode": "dropdown", "default": "断石之构", "candidates": ["断石之构", "三穷致知"] },
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+      ]
+    },
+    {
+      "id": 5, "key": "lsw", "name": "裂石威", "element": "裂石",
+      "set": "时雨", "weapons": ["陌刀", "枪"],
+      "calcVersion": "2.3", "calcUpdateTime": "2026年8月12日 19:37:28",
+      "baseline": 14350166.0127175, "useTime": 101.4, "baselineDps": 141520.374878871,
+      "xinfaInputs": [],
+      "_warning": "上游 metadata 中 裂石威 存在于 flowIds/classDefaultValues，但缺失于 flowClassFields / flowClassDefaultValues。接 codegen 时需确认其字段映射是否走通用 classFields。"
+    },
+    {
+      "id": 6, "key": "lsj", "name": "裂石钧", "element": "裂石",
+      "set": "断岳", "weapons": ["陌刀", "横刀"],
+      "calcVersion": "2.1", "calcUpdateTime": "2026年8月12日 19:37:25",
+      "baseline": 13645385.5619188, "useTime": 101.7, "baselineDps": 134172.916046399,
+      "xinfaInputs": [
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+      ]
+    },
+    {
+      "id": 7, "key": "mjh", "name": "鸣金虹", "element": "鸣金",
+      "set": "玉斗", "weapons": ["剑", "枪"],
+      "calcVersion": "1.3", "calcUpdateTime": "2026年7月14日 18:09:27",
+      "baseline": 13154257.2754926, "useTime": 109.1, "baselineDps": 120570.644138337,
+      "xinfaInputs": [],
+      "_warning": "上游 classXinfaInputs 为空，但 flowClassDefaultValues 末位含「凝神章」。存在不一致，接 codegen 时需核对。"
+    },
+    {
+      "id": 8, "key": "mjy", "name": "鸣金影", "element": "鸣金",
+      "set": "飞隼", "weapons": ["剑", "枪"],
+      "calcVersion": "1.5", "calcUpdateTime": "2026年7月5日 08:44:00",
+      "baseline": 15082270.840045, "useTime": 110.2, "baselineDps": 136862.711797141,
+      "xinfaInputs": [
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "断石之构"] }
+      ]
+    },
+    {
+      "id": 9, "key": "qsl", "name": "牵丝霖", "element": "牵丝",
+      "set": "撼天", "weapons": ["伞", "扇"],
+      "calcVersion": "1.1", "calcUpdateTime": "2026年7月7日 16:07:04",
+      "baseline": 1519700.0225165, "useTime": 15.0, "baselineDps": 101313.334834433,
+      "xinfaInputs": [
+        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+      ],
+      "_warning": "useTime 仅 15 秒、baseline 比其他流派低一个数量级。疑似上游用的是短轴或未完成的轴。用于毕业率分母前必须核实。"
+    }
+  ],
+
+  "knownGaps": [
+    "各部位的初始词条池限制（武器可 roll 最大外攻/最小外功/最大本系属功/最小本系属功/敏/势；环与佩出全武学增伤；护腿与护腕出首领增伤）——需从 xlsx 或游戏内确认完整映射",
+    "套装效果的具体数值",
+    "左右两侧套装的绑定关系（选某输出套的箱子只产出对应防具套）",
+    "110 阶的五维换算系数（流传的是 96 版本数据，不可直接用）",
+    "定音系统的数值（通用定音：外攻穿透/无相穿透/外攻抗性；流派定音：武学技/蓄力技/特殊技增伤）"
+  ]
+}

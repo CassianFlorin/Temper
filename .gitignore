@@ -1,0 +1,10 @@
+# 社区作者的 xlsx 原件，不进版本库(版权归社区作者,仓库只存 codegen 产物)
+upstream/
+
+# macOS
+.DS_Store
+
+# 依赖与虚拟环境
+node_modules/
+.venv/
+__pycache__/
