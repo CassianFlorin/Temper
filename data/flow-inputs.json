@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-14T14:23:08+00:00",
+    "generatedAt": "2026-08-15T13:45:44+00:00",
     "generator": "scripts/excel_codegen/scan_inputs.py",
     "note": "字段名 -> 期望/RD 单元格坐标。unmapped 必须为空或逐项有人工解释;新版式出现未认领格时先补规则再发布。"
   },
@@ -1540,7 +1540,7 @@
       "inert": {}
     },
     "破竹樽": {
-      "file": "破竹樽110阶竞速轴属性毕业率进阶计算器0.1.xlsx",
+      "file": "破竹樽110阶竞速轴属性毕业率进阶计算器0.4.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
