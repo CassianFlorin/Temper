@@ -14,12 +14,10 @@
       "upstream/牵丝霖110阶竞速轴属性毕业率进阶计算器1.1.xlsx",
       "upstream/DIY计算器0.9.7.xlsx"
     ],
-    "verifiedNote": "上列 4 份流派 xlsx 的 baseline/useTime/baselineDps/set/weapons/心法候选与本文件逐位一致（毕业率分母硬编码在各表 期望!I16 公式中）。其余 6 流派仍是 leoq7 转录值，未对 xlsx 复核，但 4/4 全中说明转录可信。"
+    "verifiedNote": "上列 4 份流派 xlsx 的 baseline/useTime/baselineDps/set/weapons/心法候选与本文件逐位一致（毕业率分母硬编码在各表 期望!I16 公式中）。其余 6 流派仍是 leoq7 转录值，未对 xlsx 复核，但 4/4 全中说明转录可信。 2026-08-17 对全部 12 份上游文件复核:破竹鸢2.6/裂石威2.4/裂石钧2.2/牵丝翊2.2/破竹尘2.2 数值逐位未变仅版本号更新;牵丝玉回滚 1.4->1.2 已同步;新增 破竹樽0.4;心法候选按各表公式引用重新枚举。"
   },
-
   "chengyinCoefficient": 0.94,
   "chengyinNote": "承音后满值 = 满值 × 0.94，二位小数取整。已逐条核对全部 33 项，系数统一。不需要存第二张表。2026-08-14 用 DIY计算器0.9.7 的满值/承音对照表（DIY!W3:Y24，21 项）复核：全部等于 满值×0.94 后按两位小数四舍五入（百分比词条按百分数两位小数），系数成立。",
-
   "maxValues": {
     "最大外功攻击": 121.4,
     "最小外功攻击": 121.4,
@@ -56,108 +54,367 @@
     "对玩家单位增效": 5.1,
     "全武学增效": 4.9
   },
-
   "maxValuesNote": "2026-08-14 对照 DIY计算器0.9.7 的参考数值表核对：劲/敏/势 76.8、大小外攻 121.4、五系属攻 68.8、精准 12.4、会心 14.0、会意 7.0、武学增效 9.8、奇术增伤 15.4、首领增 5.1、全武增 4.9 全部一致。仅「对玩家单位增效 5.1」在 DIY 表中无对应行（PvP 词条），未能复核。",
-
-  "elements": ["鸣金", "裂石", "牵丝", "破竹", "无相"],
-
-  "weapons": ["剑", "枪", "伞", "扇", "绳标", "双刀", "陌刀", "横刀", "拳甲", "鼓"],
-
+  "elements": [
+    "鸣金",
+    "裂石",
+    "牵丝",
+    "破竹",
+    "无相"
+  ],
+  "weapons": [
+    "剑",
+    "枪",
+    "伞",
+    "扇",
+    "绳标",
+    "双刀",
+    "陌刀",
+    "横刀",
+    "拳甲",
+    "鼓"
+  ],
   "flows": [
     {
-      "id": 0, "key": "qsy", "name": "牵丝玉", "element": "牵丝",
-      "set": "烟柳", "weapons": ["伞", "扇"],
-      "calcVersion": "1.4", "calcUpdateTime": "2026年7月1日 23:17:42",
-      "baseline": 15127585.9560326, "useTime": 110.0, "baselineDps": 137523.508691205,
+      "id": 0,
+      "key": "qsy",
+      "name": "牵丝玉",
+      "element": "牵丝",
+      "set": "烟柳",
+      "weapons": [
+        "伞",
+        "扇"
+      ],
+      "calcVersion": "1.2",
+      "calcUpdateTime": "2026-08-14 15:55:35",
+      "baseline": 15919657.6496174,
+      "useTime": 102.0,
+      "baselineDps": 156075.074996249,
       "xinfaInputs": [
-        { "field": "duanshi_xinfa", "label": "断石之构", "mode": "level_toggle", "default": "全蹭", "candidates": [] },
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+        {
+          "field": "duanshi_xinfa",
+          "label": "断石之构",
+          "mode": "level_toggle",
+          "default": "全蹭",
+          "candidates": []
+        },
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌",
+            "征人归"
+          ]
+        }
+      ],
+      "_note": "上游 2026-08-14 从 1.4 回滚至 1.2,baseline/useTime 随之变化,已按 1.2 的 xlsx 缓存值更新。"
+    },
+    {
+      "id": 1,
+      "key": "qsyi",
+      "name": "牵丝翊",
+      "element": "牵丝",
+      "set": "裁云",
+      "weapons": [
+        "鼓",
+        "扇"
+      ],
+      "calcVersion": "2.2",
+      "calcUpdateTime": "2026-08-14 22:09:16",
+      "baseline": 10763814.2343509,
+      "useTime": 100.8,
+      "baselineDps": 106783.871372529,
+      "xinfaInputs": [
+        {
+          "field": "third_xinfa",
+          "label": "第三心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌"
+          ]
+        },
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "弦墨篇",
+          "candidates": [
+            "弦墨篇",
+            "断石之构",
+            "征人归"
+          ]
+        }
       ]
     },
     {
-      "id": 1, "key": "qsyi", "name": "牵丝翊", "element": "牵丝",
-      "set": "裁云", "weapons": ["鼓", "扇"],
-      "calcVersion": "2.1", "calcUpdateTime": "2026年8月12日 19:37:37",
-      "baseline": 10763814.2343509, "useTime": 100.8, "baselineDps": 106783.871372529,
+      "id": 2,
+      "key": "pzc",
+      "name": "破竹尘",
+      "element": "破竹",
+      "set": "连星",
+      "weapons": [
+        "伞",
+        "绳标"
+      ],
+      "calcVersion": "2.2",
+      "calcUpdateTime": "2026-08-14 22:09:11",
+      "baseline": 13394742.0408693,
+      "useTime": 101.0,
+      "baselineDps": 132621.208325439,
       "xinfaInputs": [
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "弦墨篇", "candidates": ["弦墨篇", "断石之构"] }
+        {
+          "field": "third_xinfa",
+          "label": "第三心法",
+          "mode": "dropdown",
+          "default": "大唐歌",
+          "candidates": [
+            "大唐歌",
+            "断石之构"
+          ]
+        },
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌",
+            "所恨年年",
+            "征人归"
+          ]
+        }
       ]
     },
     {
-      "id": 2, "key": "pzc", "name": "破竹尘", "element": "破竹",
-      "set": "连星", "weapons": ["伞", "绳标"],
-      "calcVersion": "2.1", "calcUpdateTime": "2026年8月12日 19:37:30",
-      "baseline": 13394742.0408693, "useTime": 101.0, "baselineDps": 132621.208325439,
+      "id": 3,
+      "key": "pzf",
+      "name": "破竹风",
+      "element": "破竹",
+      "set": "燕归",
+      "weapons": [
+        "双刀",
+        "绳标"
+      ],
+      "calcVersion": "1.1",
+      "calcUpdateTime": "2026年6月30日 13:25:22",
+      "baseline": 14311682.0898318,
+      "useTime": 109.2,
+      "baselineDps": 131059.359796995,
       "xinfaInputs": [
-        { "field": "third_xinfa", "label": "第三心法", "mode": "dropdown", "default": "大唐歌", "candidates": ["大唐歌", "断石之构"] },
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "所恨年年"] }
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌",
+            "征人归"
+          ]
+        }
       ]
     },
     {
-      "id": 3, "key": "pzf", "name": "破竹风", "element": "破竹",
-      "set": "燕归", "weapons": ["双刀", "绳标"],
-      "calcVersion": "1.1", "calcUpdateTime": "2026年6月30日 13:25:22",
-      "baseline": 14311682.0898318, "useTime": 109.2, "baselineDps": 131059.359796995,
+      "id": 4,
+      "key": "pzy",
+      "name": "破竹鸢",
+      "element": "破竹",
+      "set": "撼天",
+      "weapons": [
+        "拳甲",
+        "绳标"
+      ],
+      "calcVersion": "2.6",
+      "calcUpdateTime": "2026-08-14 22:09:04",
+      "baseline": 14482689.1885858,
+      "useTime": 100.8,
+      "baselineDps": 143677.472108986,
       "xinfaInputs": [
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+        {
+          "field": "third_xinfa",
+          "label": "第三心法",
+          "mode": "dropdown",
+          "default": "断石之构",
+          "candidates": [
+            "断石之构",
+            "三穷致知"
+          ]
+        },
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌",
+            "征人归"
+          ]
+        }
       ]
     },
     {
-      "id": 4, "key": "pzy", "name": "破竹鸢", "element": "破竹",
-      "set": "撼天", "weapons": ["拳甲", "绳标"],
-      "calcVersion": "2.5", "calcUpdateTime": "2026年8月12日 19:37:35",
-      "baseline": 14482689.1885858, "useTime": 100.8, "baselineDps": 143677.472108986,
-      "xinfaInputs": [
-        { "field": "third_xinfa", "label": "第三心法", "mode": "dropdown", "default": "断石之构", "candidates": ["断石之构", "三穷致知"] },
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
-      ]
-    },
-    {
-      "id": 5, "key": "lsw", "name": "裂石威", "element": "裂石",
-      "set": "时雨", "weapons": ["陌刀", "枪"],
-      "calcVersion": "2.3", "calcUpdateTime": "2026年8月12日 19:37:28",
-      "baseline": 14350166.0127175, "useTime": 101.4, "baselineDps": 141520.374878871,
+      "id": 5,
+      "key": "lsw",
+      "name": "裂石威",
+      "element": "裂石",
+      "set": "时雨",
+      "weapons": [
+        "陌刀",
+        "枪"
+      ],
+      "calcVersion": "2.4",
+      "calcUpdateTime": "2026-08-14 22:09:21",
+      "baseline": 14350166.0127175,
+      "useTime": 101.4,
+      "baselineDps": 141520.374878871,
       "xinfaInputs": [],
       "_resolved": "已对 裂石威2.3 xlsx 核实（2026-08-14）：表内确实没有可选心法输入，xinfaInputs 为空是对的，leoq7 metadata 缺字段只是如实反映上游。细节：易水歌1-5层在增益表中是无条件字面量（轴内永远生效）；期望!D2/B11 仍残留 IF($C$21=\"征人归\"/\"易水歌\") 判断，但该表 C21 被团队增益「翊」占位（本流派自身增益「威」行被删导致开关区上移），两个条件永远为假，属上游复制残留。另有流派特有开关 穿喉决(E18)/抗造大法(E19)，不属于心法体系。codegen 不能假设 C21 跨流派恒为第四心法格。"
     },
     {
-      "id": 6, "key": "lsj", "name": "裂石钧", "element": "裂石",
-      "set": "断岳", "weapons": ["陌刀", "横刀"],
-      "calcVersion": "2.1", "calcUpdateTime": "2026年8月12日 19:37:25",
-      "baseline": 13645385.5619188, "useTime": 101.7, "baselineDps": 134172.916046399,
+      "id": 6,
+      "key": "lsj",
+      "name": "裂石钧",
+      "element": "裂石",
+      "set": "断岳",
+      "weapons": [
+        "陌刀",
+        "横刀"
+      ],
+      "calcVersion": "2.2",
+      "calcUpdateTime": "2026-08-14 22:09:27",
+      "baseline": 13645385.5619188,
+      "useTime": 101.7,
+      "baselineDps": 134172.916046399,
       "xinfaInputs": [
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌",
+            "征人归"
+          ]
+        }
       ]
     },
     {
-      "id": 7, "key": "mjh", "name": "鸣金虹", "element": "鸣金",
-      "set": "玉斗", "weapons": ["剑", "枪"],
-      "calcVersion": "1.3", "calcUpdateTime": "2026年7月14日 18:09:27",
-      "baseline": 13154257.2754926, "useTime": 109.1, "baselineDps": 120570.644138337,
+      "id": 7,
+      "key": "mjh",
+      "name": "鸣金虹",
+      "element": "鸣金",
+      "set": "玉斗",
+      "weapons": [
+        "剑",
+        "枪"
+      ],
+      "calcVersion": "1.3",
+      "calcUpdateTime": "2026年7月14日 18:09:27",
+      "baseline": 13154257.2754926,
+      "useTime": 109.1,
+      "baselineDps": 120570.644138337,
       "xinfaInputs": [],
       "_resolved": "已对 鸣金虹1.3 xlsx 核实（2026-08-14）：「凝神章」三字在整份 xlsx 中不存在，leoq7 的该默认值无法溯源到上游，xinfaInputs 为空与 xlsx 实际暴露的输入一致。细节：易水歌机制在表内是半接线状态——增益表 易水歌1-5层 行以 IF(期望!$C$21=\"易水歌\") 门控，但 期望!C21 是空格（无标签无值，条件恒假）；武学奇术表虽有「易水歌6重」技能，当前轴中对应行均为 N/a 占位。codegen 时 C21 应作为可选输入暴露（填「易水歌」即可激活整套 buff），并向上游作者确认预期默认值。"
     },
     {
-      "id": 8, "key": "mjy", "name": "鸣金影", "element": "鸣金",
-      "set": "飞隼", "weapons": ["剑", "枪"],
-      "calcVersion": "1.5", "calcUpdateTime": "2026年7月5日 08:44:00",
-      "baseline": 15082270.840045, "useTime": 110.2, "baselineDps": 136862.711797141,
+      "id": 8,
+      "key": "mjy",
+      "name": "鸣金影",
+      "element": "鸣金",
+      "set": "飞隼",
+      "weapons": [
+        "剑",
+        "枪"
+      ],
+      "calcVersion": "1.5",
+      "calcUpdateTime": "2026年7月5日 08:44:00",
+      "baseline": 15082270.840045,
+      "useTime": 110.2,
+      "baselineDps": 136862.711797141,
       "xinfaInputs": [
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "断石之构"] }
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌",
+            "断石之构"
+          ]
+        }
       ]
     },
     {
-      "id": 9, "key": "qsl", "name": "牵丝霖", "element": "牵丝",
-      "set": "撼天", "weapons": ["伞", "扇"],
-      "calcVersion": "1.1", "calcUpdateTime": "2026年7月7日 16:07:04",
-      "baseline": 1519700.0225165, "useTime": 15.0, "baselineDps": 101313.334834433,
+      "id": 9,
+      "key": "qsl",
+      "name": "牵丝霖",
+      "element": "牵丝",
+      "set": "撼天",
+      "weapons": [
+        "伞",
+        "扇"
+      ],
+      "calcVersion": "1.1",
+      "calcUpdateTime": "2026年7月7日 16:07:04",
+      "baseline": 1519700.0225165,
+      "useTime": 15.0,
+      "baselineDps": 101313.334834433,
       "xinfaInputs": [
-        { "field": "fourth_xinfa", "label": "第四心法", "mode": "dropdown", "default": "易水歌", "candidates": ["易水歌", "征人归"] }
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌",
+            "征人归"
+          ]
+        }
       ],
       "_resolved": "已对 牵丝霖1.1 xlsx 核实（2026-08-14）：15 秒是上游有意为之，非未完成。更新日志 0.1#4 原文「只计算最高爆发的15秒(不含气竭但是有铁花),心法为君易四怒」，期望!I8=15、总伤/DPS/毕业率分母(101313.33)与本文件逐位一致。作为本流派毕业率分母可以用；但该 baseline 与其他流派的百秒轴 DPS 不可横向比较，UI 上做流派间对比时必须排除或标注。"
+    },
+    {
+      "id": 10,
+      "key": "pzz",
+      "name": "破竹樽",
+      "element": "破竹",
+      "set": "倾觞",
+      "weapons": [
+        "拳甲",
+        "双刀"
+      ],
+      "calcVersion": "0.4",
+      "calcUpdateTime": "2026-08-15 20:55:07",
+      "baseline": 14970844.1491157,
+      "useTime": 100.8,
+      "baselineDps": 148520.2792571,
+      "xinfaInputs": [
+        {
+          "field": "third_xinfa",
+          "label": "第三心法",
+          "mode": "dropdown",
+          "default": "燕别云岫",
+          "candidates": [
+            "燕别云岫",
+            "断石之构",
+            "征人归"
+          ]
+        },
+        {
+          "field": "fourth_xinfa",
+          "label": "第四心法",
+          "mode": "dropdown",
+          "default": "易水歌",
+          "candidates": [
+            "易水歌"
+          ]
+        }
+      ],
+      "_note": "上游 0.x 早期版本;第四心法公式仅接线易水歌,候选如实记录为单项。套装「倾觞」为新增套装。"
     }
   ],
-
   "knownGaps": [
     "各部位的初始词条池限制（武器可 roll 最大外攻/最小外功/最大本系属功/最小本系属功/敏/势；环与佩出全武学增伤；护腿与护腕出首领增伤）——需从 xlsx 或游戏内确认完整映射",
     "套装效果的具体数值",
