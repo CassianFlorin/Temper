@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-17T00:48:10+00:00",
+    "generatedAt": "2026-08-18T02:23:03+00:00",
     "generator": "scripts/excel_codegen/scan_inputs.py",
     "note": "字段名 -> 期望/RD 单元格坐标。unmapped 必须为空或逐项有人工解释;新版式出现未认领格时先补规则再发布。"
   },
@@ -407,7 +407,7 @@
       }
     },
     "牵丝翊": {
-      "file": "牵丝翊110阶竞速轴属性毕业率进阶计算器2.2.xlsx",
+      "file": "牵丝翊110阶竞速轴属性毕业率进阶计算器2.3.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
@@ -457,7 +457,7 @@
         {
           "name": "面板.牵丝.最大攻击",
           "kind": "number",
-          "default": 1397.8,
+          "default": 1329,
           "cells": {
             "期望": "C5"
           },
@@ -793,98 +793,48 @@
       "inert": {}
     },
     "牵丝霖": {
-      "file": "牵丝霖110阶竞速轴属性毕业率进阶计算器1.1.xlsx",
+      "file": "牵丝霖110阶竞速轴属性毕业率进阶计算器2.1.xlsx",
       "fields": [
-        {
-          "name": "面板.外功.最小攻击",
-          "kind": "number",
-          "default": 3839.7,
-          "cells": {
-            "期望": "B2",
-            "RD": "B2"
-          },
-          "block": "面板",
-          "rd_default": 3347.5
-        },
-        {
-          "name": "面板.外功.最大攻击",
-          "kind": "number",
-          "default": 3020.3,
-          "cells": {
-            "期望": "C2",
-            "RD": "C2"
-          },
-          "block": "面板",
-          "rd_default": 2617.7
-        },
-        {
-          "name": "面板.外功.穿透",
-          "kind": "number",
-          "default": 58.4,
-          "cells": {
-            "期望": "D2",
-            "RD": "D2"
-          },
-          "block": "面板"
-        },
-        {
-          "name": "面板.外功.伤害加成",
-          "kind": "number",
-          "default": 0.028,
-          "cells": {
-            "期望": "E2",
-            "RD": "E2"
-          },
-          "block": "面板"
-        },
         {
           "name": "面板.牵丝.最小攻击",
           "kind": "number",
-          "default": 472,
+          "default": 492,
           "cells": {
-            "期望": "B5",
-            "RD": "B5"
+            "期望": "B5"
           },
-          "block": "面板",
-          "rd_default": 490.8
+          "block": "面板"
         },
         {
           "name": "面板.牵丝.最大攻击",
           "kind": "number",
-          "default": 1357.8,
+          "default": 1397.8,
           "cells": {
-            "期望": "C5",
-            "RD": "C5"
+            "期望": "C5"
           },
-          "block": "面板",
-          "rd_default": 1042.4
+          "block": "面板"
         },
         {
           "name": "面板.牵丝.穿透",
           "kind": "number",
           "default": 30,
           "cells": {
-            "期望": "D5",
-            "RD": "D5"
+            "期望": "D5"
           },
-          "block": "面板",
-          "rd_default": 29.6
+          "block": "面板"
         },
         {
           "name": "面板.牵丝.伤害加成",
           "kind": "number",
           "default": 0.15,
           "cells": {
-            "期望": "E5",
-            "RD": "E5"
+            "期望": "E5"
           },
-          "block": "面板",
-          "rd_default": 0.148
+          "block": "面板"
         },
         {
           "name": "精准率",
           "kind": "number",
-          "default": 0.979,
+          "default": 0.9859,
           "cells": {
             "期望": "B8"
           },
@@ -893,7 +843,7 @@
         {
           "name": "会心率",
           "kind": "number",
-          "default": 0.7903,
+          "default": 0.8049,
           "cells": {
             "期望": "B9"
           },
@@ -902,7 +852,7 @@
         {
           "name": "会意率",
           "kind": "number",
-          "default": 0.0895,
+          "default": 0.0929,
           "cells": {
             "期望": "B10"
           },
@@ -992,7 +942,7 @@
         {
           "name": "固伤加成",
           "kind": "number",
-          "default": 0.4,
+          "default": 0.5,
           "cells": {
             "期望": "B22"
           },
@@ -1092,11 +1042,42 @@
           "rd_default": "×"
         },
         {
-          "name": "第四心法",
+          "name": "团队增益.翊",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D21",
+            "RD": "D21"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "团队增益.樽",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D22",
+            "RD": "D22"
+          },
+          "block": "团队增益",
+          "rd_default": "×"
+        },
+        {
+          "name": "第三心法",
           "kind": "text",
           "default": "易水歌",
           "cells": {
-            "期望": "C22"
+            "期望": "E20"
+          },
+          "block": "心法"
+        },
+        {
+          "name": "第四心法",
+          "kind": "text",
+          "default": "征人归",
+          "cells": {
+            "期望": "E22"
           },
           "block": "心法"
         },
