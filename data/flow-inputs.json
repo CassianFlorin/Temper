@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-28T12:48:14+00:00",
+    "generatedAt": "2026-09-01T17:23:20+00:00",
     "generator": "scripts/excel_codegen/scan_inputs.py",
     "note": "字段名 -> 期望/RD 单元格坐标。unmapped 必须为空或逐项有人工解释;新版式出现未认领格时先补规则再发布。"
   },
@@ -3509,12 +3509,12 @@
       "inert": {}
     },
     "鸣金影": {
-      "file": "鸣金影110阶竞速轴属性毕业率进阶计算器1.5.xlsx",
+      "file": "鸣金影110阶竞速轴属性毕业率进阶计算器2.2.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
           "kind": "number",
-          "default": 1743.2,
+          "default": 1838,
           "cells": {
             "期望": "B2"
           },
@@ -3523,7 +3523,7 @@
         {
           "name": "面板.外功.最大攻击",
           "kind": "number",
-          "default": 6189.6,
+          "default": 6454.2,
           "cells": {
             "期望": "C2"
           },
@@ -3541,7 +3541,7 @@
         {
           "name": "面板.鸣金.最小攻击",
           "kind": "number",
-          "default": 472,
+          "default": 492,
           "cells": {
             "期望": "B3"
           },
@@ -3550,7 +3550,7 @@
         {
           "name": "面板.鸣金.最大攻击",
           "kind": "number",
-          "default": 945,
+          "default": 985,
           "cells": {
             "期望": "C3"
           },
@@ -3577,7 +3577,7 @@
         {
           "name": "面板.无相.最小攻击",
           "kind": "number",
-          "default": 66,
+          "default": 79.2,
           "cells": {
             "期望": "B7"
           },
@@ -3586,7 +3586,7 @@
         {
           "name": "面板.无相.最大攻击",
           "kind": "number",
-          "default": 66,
+          "default": 92.4,
           "cells": {
             "期望": "C7"
           },
@@ -3595,7 +3595,7 @@
         {
           "name": "精准率",
           "kind": "number",
-          "default": 0.8271,
+          "default": 0.8341,
           "cells": {
             "期望": "B8"
           },
@@ -3604,7 +3604,7 @@
         {
           "name": "会心率",
           "kind": "number",
-          "default": 0.1789,
+          "default": 0.1857,
           "cells": {
             "期望": "B9"
           },
@@ -3613,7 +3613,7 @@
         {
           "name": "会意率",
           "kind": "number",
-          "default": 0.3929,
+          "default": 0.3996,
           "cells": {
             "期望": "B10"
           },
@@ -3694,7 +3694,7 @@
         {
           "name": "单体奇术增",
           "kind": "number",
-          "default": 0.2678,
+          "default": 0.1339,
           "cells": {
             "期望": "B19"
           },
@@ -3721,7 +3721,7 @@
         {
           "name": "固伤加成",
           "kind": "number",
-          "default": 0.4,
+          "default": 0.5,
           "cells": {
             "期望": "B22"
           },
@@ -3746,6 +3746,15 @@
           "block": "标量"
         },
         {
+          "name": "轴",
+          "kind": "text",
+          "default": "单位用时",
+          "cells": {
+            "期望": "B26"
+          },
+          "block": "标量"
+        },
+        {
           "name": "副本天赋",
           "kind": "number",
           "default": 0.06,
@@ -3758,18 +3767,9 @@
         {
           "name": "战斗时间",
           "kind": "number",
-          "default": 110.2,
+          "default": 91.5,
           "cells": {
             "期望": "I8"
-          },
-          "block": "怪物/杂项"
-        },
-        {
-          "name": "机制时间",
-          "kind": "number",
-          "default": 9,
-          "cells": {
-            "期望": "I20"
           },
           "block": "怪物/杂项"
         },
@@ -3787,32 +3787,60 @@
         {
           "name": "团队增益.尘",
           "kind": "toggle",
-          "default": "√",
+          "default": "×",
           "cells": {
             "期望": "D17",
             "RD": "D17"
           },
-          "block": "团队增益",
-          "rd_default": "×"
+          "block": "团队增益"
         },
         {
           "name": "团队增益.虹",
           "kind": "toggle",
-          "default": "√",
+          "default": "×",
           "cells": {
             "期望": "D18",
             "RD": "D18"
           },
-          "block": "团队增益",
-          "rd_default": "×"
+          "block": "团队增益"
         },
         {
           "name": "团队增益.钧",
           "kind": "toggle",
-          "default": "√",
+          "default": "×",
           "cells": {
             "期望": "D19",
             "RD": "D19"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "团队增益.翊",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D21",
+            "RD": "D21"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "团队增益.樽",
+          "kind": "toggle",
+          "default": "×",
+          "cells": {
+            "期望": "D22",
+            "RD": "D22"
+          },
+          "block": "团队增益"
+        },
+        {
+          "name": "团队增益.霖",
+          "kind": "toggle",
+          "default": "√",
+          "cells": {
+            "期望": "D23",
+            "RD": "D23"
           },
           "block": "团队增益",
           "rd_default": "×"
@@ -3822,7 +3850,7 @@
           "kind": "text",
           "default": "易水歌",
           "cells": {
-            "期望": "C22"
+            "期望": "E22"
           },
           "block": "心法"
         },
