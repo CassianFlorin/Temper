@@ -1,7 +1,8 @@
 """上游同步:抓 h9dh.cn 文件清单,比对版本,变化时下载 xlsx。
 
-数据源是首页内嵌的 window.__INITIAL_DATA__(几 KB,自带每个文件的
-版本号/更新时间/大小),无变化时只有这一次请求,对上游站零打扰。
+数据源是 /api/home JSON 接口(几 KB,自带每个文件的版本号/更新时间/
+大小),无变化时只有这一次请求,对上游站零打扰。
+2026-10 起站点改为 SPA,原首页内嵌 window.__INITIAL_DATA__ 已下线。
 
 用法:
   python sync_upstream.py [--force] [--check-only]
@@ -34,8 +35,8 @@ UPSTREAM = ROOT / "upstream"
 BASE = "https://www.h9dh.cn/"
 UA = "TemperSync/1.0 (open-source calculator pipeline; contact via repo issues)"
 
-# 比对用的稳定字段;id 是站点内部值,不参与比对
-FIELDS = ("name", "version", "size", "updateDate", "updateTime", "url")
+# 比对用的稳定字段;id/category 等站点内部值不参与比对
+FIELDS = ("name", "version", "size", "updatedAt", "url")
 
 
 def fetch(url: str, timeout: int = 60) -> bytes:
@@ -52,17 +53,25 @@ def fetch(url: str, timeout: int = 60) -> bytes:
 
 
 def fetch_listing() -> list[dict]:
-    html = fetch(BASE).decode("utf-8", errors="replace")
-    marker = "__INITIAL_DATA__"
-    at = html.find(marker)
-    if at < 0:
-        raise RuntimeError("首页里找不到 __INITIAL_DATA__,站点结构变了")
-    brace = html.find("{", at)
-    data, _ = json.JSONDecoder().raw_decode(html[brace:])
+    blob = fetch(BASE + "api/home")
+    try:
+        data = json.loads(blob.decode("utf-8"))
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"/api/home 返回的不是 JSON,站点结构变了: {e}") from e
     files = [
-        {k: f.get(k) for k in FIELDS}
+        {
+            "name": f.get("name"),
+            "version": f.get("version"),
+            "size": f.get("size_bytes"),
+            "updatedAt": f.get("updated_at"),
+            "url": f.get("download_url"),
+        }
         for f in data.get("files", [])
-        if f.get("fileType") == "xlsx" and not f.get("isExternal")
+        if f.get("kind") == "file"
+        and f.get("extension") == "xlsx"
+        and f.get("visible")
+        and not f.get("external_url")
+        and not f.get("deleted_at")
     ]
     if not files:
         raise RuntimeError("清单里没有 xlsx 条目,站点结构变了")

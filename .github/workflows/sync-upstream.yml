@@ -108,7 +108,7 @@ jobs:
             gh issue create \
               --title "上游同步验收失败 $(date -u +%F)" \
               --label upstream-sync-failure \
-              --body "定时同步在验收阶段失败,可能是上游 xlsx 改了版式或出现新语法。查看运行日志:${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}。修复后手动 workflow_dispatch(force)重跑。"
+              --body "定时同步在抓取或验收阶段失败。抓取失败通常是上游站点结构变了(参考 scripts/sync_upstream.py 的 fetch_listing);验收失败可能是上游 xlsx 改了版式或出现新语法。查看运行日志:${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}。修复后手动 workflow_dispatch(force)重跑。"
           else
             echo "已有未关闭的失败 issue,不重复创建"
           fi
