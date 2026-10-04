@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 from formula_parser import (
-    Bin, Bool, Call, Num, Paren, Pct, Ref, Str, Un, Node,
+    Bin, Bool, Call, Err, Num, Paren, Pct, Ref, Str, Un, Node,
 )
 from workbook_graph import WorkbookGraph, load_graph, resolve_ref
 
@@ -224,6 +224,10 @@ class Emitter:
             if name == "ROUNDUP":
                 return f"ROUNDUP({a(0)},{a(1)})"
             raise ValueError(f"未实现的函数 {n.name}")
+        if isinstance(n, Err):
+            # 运行时 ERR() 抛错,由逐格 try/catch 捕获为 {__err:code},
+            # 与 Excel 对错误字面量的传播一致
+            return f"ERR({json.dumps(n.code)})"
         raise ValueError(f"未知节点 {n!r}")
 
     # -- 整体生成

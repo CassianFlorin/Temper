@@ -50,6 +50,24 @@ class Bool:
 
 
 @dataclass
+class Err:
+    """Excel 错误字面量,如 #REF! / #N/A。
+
+    text 保留回写原文(可含表名前缀,如 期望!#REF!);
+    code 是纯错误码,供运行时按 Excel 语义抛错用。
+    """
+    text: str
+    code: str = ""
+
+    def __post_init__(self):
+        if not self.code:
+            self.code = self.text
+
+    def to_formula(self) -> str:
+        return self.text
+
+
+@dataclass
 class CellPart:
     """区间的一端:列、行至少有其一。col=None 表示整行端,row=None 表示整列端。"""
     col: Optional[str] = None
@@ -130,7 +148,7 @@ class Paren:
         return "(" + self.inner.to_formula() + ")"
 
 
-Node = Union[Num, Str, Bool, Ref, Call, Bin, Un, Pct, Paren]
+Node = Union[Num, Str, Bool, Ref, Call, Bin, Un, Pct, Paren, Err]
 
 
 # ---------------------------------------------------------------- 词法
@@ -145,6 +163,7 @@ _TOKEN_RE = re.compile(
     | (?P<CELL>\$?[A-Za-z]{1,3}\$?\d+(?![\w.一-鿿]))
     | (?P<COLABS>\$[A-Za-z]{1,3}(?![\w.一-鿿]))
     | (?P<IDENT>[A-Za-z_一-鿿][\w.一-鿿]*)
+    | (?P<ERR>\#(?:REF!|NUM!|NULL!|DIV/0!|VALUE!|NAME\?|N/A))
     | (?P<OP><>|<=|>=|[=<>+\-*/^&%(),:])
     """,
     re.VERBOSE,
@@ -294,10 +313,20 @@ class Parser:
                 sheet = t.text[:-1]
             else:
                 sheet = t.text[1:-2].replace("''", "'")
+            nxt = self.peek()
+            if nxt is not None and nxt.kind == "ERR":
+                # 表名限定下的错误字面量(如 期望!#REF!,上游破竹风 3.1 实测),
+                # text 整体保留原文回写,code 取纯错误码
+                self.next()
+                return Err(t.text + nxt.text, nxt.text)
             return self.parse_ref(sheet)
 
         if t.kind in ("CELL", "COLABS"):
             return self.parse_ref(None)
+
+        if t.kind == "ERR":
+            self.next()
+            return Err(t.text)
 
         if t.kind == "IDENT":
             nxt = self.peek(1)
@@ -374,6 +403,7 @@ if __name__ == "__main__":
         "=132%*1.12*1.7*(1+期望!$B$22/10)",
         "=MIN(IF(VLOOKUP($R25,武学奇术!$A:$ZZ,23,FALSE)=1,100%,$B$8),100%)",
         "=620*(1-IF(F17=\"√\",0.06,0)-IF(D20=\"√\",0.04,0))",
+        '=IF(期望!#REF!="逆反",0,25)',
     ]
     for s in samples:
         ast = parse_formula(s)

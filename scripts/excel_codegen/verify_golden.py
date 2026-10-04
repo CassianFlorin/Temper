@@ -24,6 +24,10 @@ REL_TOL = 1e-9
 
 def compare(cached, got):
     if isinstance(got, dict) and "__err" in got:
+        # 上游公式里的错误字面量(如 #REF!)运行时按 Excel 语义抛错,
+        # 缓存值若为同一错误字符串即视为一致
+        if isinstance(cached, str) and cached == got["__err"]:
+            return "exact"
         return "FAIL"
     if isinstance(cached, bool) or isinstance(got, bool):
         return "exact" if cached is got else "FAIL"
