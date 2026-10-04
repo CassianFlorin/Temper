@@ -39,13 +39,18 @@ UA = "TemperSync/1.0 (open-source calculator pipeline; contact via repo issues)"
 FIELDS = ("name", "version", "size", "updatedAt", "url")
 
 
-def fetch(url: str, timeout: int = 60) -> bytes:
+def fetch(url: str, timeout: int = 60, want_zip: bool = False) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     last_err = None
     for attempt in range(5):  # CI 出口到上游偶发读超时,多试几次
         try:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
-                return resp.read()
+                blob = resp.read()
+                if want_zip and blob[:2] != b"PK":
+                    # 上游偶发对 CI 出口 IP 弹反爬页(HTTP 200 + HTML),
+                    # 与网络异常一样按可重试处理
+                    raise IOError(f"返回的不是 xlsx(前 2 字节 {blob[:2]!r})")
+                return blob
         except Exception as e:  # noqa: BLE001 - 重试后统一抛出
             last_err = e
             time.sleep(10 * (attempt + 1))
@@ -93,15 +98,12 @@ def emit_output(changed: bool) -> None:
 
 def download_all(files: list[dict]) -> None:
     UPSTREAM.mkdir(exist_ok=True)
-    for f in files:
+    for i, f in enumerate(files):
         url = BASE + f["url"]
         dest = UPSTREAM / f["name"]
-        blob = fetch(url, timeout=120)
-        if blob[:2] != b"PK":
-            raise RuntimeError(
-                f"{f['name']} 不是 xlsx(前 2 字节 {blob[:2]!r}),"
-                "可能被反爬页面拦截"
-            )
+        blob = fetch(url, timeout=120, want_zip=True)
+        if i > 0:
+            time.sleep(1)  # 连续下载间隔,降低触发上游反爬的概率
         dest.write_bytes(blob)
         print(f"  下载 {f['name']} ({len(blob) / 1024:.0f} KB)")
 
