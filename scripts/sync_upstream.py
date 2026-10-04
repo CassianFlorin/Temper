@@ -99,7 +99,9 @@ def emit_output(changed: bool) -> None:
 def download_all(files: list[dict]) -> None:
     UPSTREAM.mkdir(exist_ok=True)
     for i, f in enumerate(files):
-        url = BASE + f["url"]
+        # 旧站点 url 不带前导斜杠,新接口带;必须归一化,
+        # 双斜杠会被上游 WAF 拦成 HTML 反爬页
+        url = BASE.rstrip("/") + "/" + f["url"].lstrip("/")
         dest = UPSTREAM / f["name"]
         blob = fetch(url, timeout=120, want_zip=True)
         if i > 0:
