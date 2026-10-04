@@ -253,7 +253,14 @@ class Emitter:
         ]
 
     def chunk_lines(self, stmts: list[str], size: int = 500) -> list[str]:
-        chunks = [stmts[i:i + size] for i in range(0, len(stmts), size)]
+        # 逐语句 try/catch:错误字面量格(如 #REF!)按 Excel 语义捕为
+        # {__err},不能让一个抛错跳过同块后续格的求值
+        safe = [
+            "try{" + s.rstrip(";") + "}catch(e){"
+            + s.split("=", 1)[0].strip() + "={__err:String(e.excel||e)};}"
+            for s in stmts
+        ]
+        chunks = [safe[i:i + size] for i in range(0, len(safe), size)]
         out = [
             f"function C{ci}(){{\n" + "\n".join(chunk) + "\n}"
             for ci, chunk in enumerate(chunks)
@@ -280,8 +287,8 @@ class Emitter:
 
         if self.chunked:
             # 直线代码分块:避免 12k 闭包的逐个调用开销,也避免单个
-            # 超大函数体让 V8 放弃优化。整块 try:金标准已证零错误,
-            # 任何异常都是生成缺陷,响亮失败即可。
+            # 超大函数体让 V8 放弃优化。逐语句 try:上游存在合法错误格
+            # (如破竹风 3.1 的 #REF! 字面量),非异常一律是生成缺陷。
             body = self.chunk_lines(self.topo_statements())
             body.append('try{EVAL();}catch(e){console.error("EVAL 异常:",e);process.exit(3);}')
         else:
