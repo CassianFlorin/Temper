@@ -1,17 +1,17 @@
 {
   "_meta": {
-    "generatedAt": "2026-10-04T10:04:44+00:00",
+    "generatedAt": "2026-10-05T21:19:06+00:00",
     "generator": "scripts/excel_codegen/scan_inputs.py",
     "note": "字段名 -> 期望/RD 单元格坐标。unmapped 必须为空或逐项有人工解释;新版式出现未认领格时先补规则再发布。"
   },
   "flows": {
     "牵丝翊": {
-      "file": "牵丝翊110阶竞速轴属性毕业率进阶计算器2.6.xlsx",
+      "file": "牵丝翊110阶竞速轴属性毕业率进阶计算器3.0.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
           "kind": "number",
-          "default": 4043.1,
+          "default": 4512,
           "cells": {
             "期望": "B2"
           },
@@ -20,7 +20,7 @@
         {
           "name": "面板.外功.最大攻击",
           "kind": "number",
-          "default": 3156.7,
+          "default": 3417.6,
           "cells": {
             "期望": "C2"
           },
@@ -29,7 +29,7 @@
         {
           "name": "面板.外功.穿透",
           "kind": "number",
-          "default": 58.4,
+          "default": 58.7,
           "cells": {
             "期望": "D2"
           },
@@ -47,7 +47,7 @@
         {
           "name": "面板.牵丝.最小攻击",
           "kind": "number",
-          "default": 492,
+          "default": 539,
           "cells": {
             "期望": "B5"
           },
@@ -56,7 +56,7 @@
         {
           "name": "面板.牵丝.最大攻击",
           "kind": "number",
-          "default": 1329,
+          "default": 1475,
           "cells": {
             "期望": "C5"
           },
@@ -90,9 +90,18 @@
           "block": "面板"
         },
         {
+          "name": "面板.无相.最大攻击",
+          "kind": "number",
+          "default": 250.8,
+          "cells": {
+            "期望": "C7"
+          },
+          "block": "面板"
+        },
+        {
           "name": "精准率",
           "kind": "number",
-          "default": 0.9859,
+          "default": 0.9771,
           "cells": {
             "期望": "B8"
           },
@@ -101,7 +110,7 @@
         {
           "name": "会心率",
           "kind": "number",
-          "default": 0.7992,
+          "default": 0.7941,
           "cells": {
             "期望": "B9"
           },
@@ -137,7 +146,7 @@
         {
           "name": "全武增",
           "kind": "number",
-          "default": 0.0852,
+          "default": 0.0847,
           "cells": {
             "期望": "B15"
           },
@@ -146,7 +155,7 @@
         {
           "name": "首领增",
           "kind": "number",
-          "default": 0.0887,
+          "default": 0.0892,
           "cells": {
             "期望": "B16"
           },
@@ -155,7 +164,7 @@
         {
           "name": "鼓增",
           "kind": "number",
-          "default": 0.0852,
+          "default": 0.0854,
           "cells": {
             "期望": "B17"
           },
@@ -209,7 +218,7 @@
         {
           "name": "食物加成",
           "kind": "number",
-          "default": 200,
+          "default": 240,
           "cells": {
             "期望": "B23"
           },
@@ -218,7 +227,7 @@
         {
           "name": "食物加成#2",
           "kind": "number",
-          "default": 400,
+          "default": 480,
           "cells": {
             "期望": "B24"
           },
@@ -392,12 +401,12 @@
       "inert": {}
     },
     "破竹鸢": {
-      "file": "破竹鸢110阶竞速轴属性毕业率进阶计算器2.8.xlsx",
+      "file": "破竹鸢110阶竞速轴属性毕业率进阶计算器3.0.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
           "kind": "number",
-          "default": 4006.7,
+          "default": 4473,
           "cells": {
             "期望": "B2"
           },
@@ -406,16 +415,25 @@
         {
           "name": "面板.外功.最大攻击",
           "kind": "number",
-          "default": 3083.9,
+          "default": 3339.6,
           "cells": {
             "期望": "C2"
           },
           "block": "面板"
         },
         {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 58.7,
+          "cells": {
+            "期望": "D2"
+          },
+          "block": "面板"
+        },
+        {
           "name": "面板.破竹.最小攻击",
           "kind": "number",
-          "default": 492,
+          "default": 539,
           "cells": {
             "期望": "B6"
           },
@@ -424,7 +442,7 @@
         {
           "name": "面板.破竹.最大攻击",
           "kind": "number",
-          "default": 1397.8,
+          "default": 1554.2,
           "cells": {
             "期望": "C6"
           },
@@ -458,9 +476,18 @@
           "block": "面板"
         },
         {
+          "name": "面板.无相.最大攻击",
+          "kind": "number",
+          "default": 250.8,
+          "cells": {
+            "期望": "C7"
+          },
+          "block": "面板"
+        },
+        {
           "name": "精准率",
           "kind": "number",
-          "default": 1.0063,
+          "default": 0.9943,
           "cells": {
             "期望": "B8"
           },
@@ -469,7 +496,7 @@
         {
           "name": "会心率",
           "kind": "number",
-          "default": 0.7706,
+          "default": 0.7655,
           "cells": {
             "期望": "B9"
           },
@@ -478,7 +505,7 @@
         {
           "name": "会意率",
           "kind": "number",
-          "default": 0.0929,
+          "default": 0.0913,
           "cells": {
             "期望": "B10"
           },
@@ -514,7 +541,7 @@
         {
           "name": "全武增",
           "kind": "number",
-          "default": 0.0852,
+          "default": 0.0847,
           "cells": {
             "期望": "B15"
           },
@@ -523,7 +550,7 @@
         {
           "name": "首领增",
           "kind": "number",
-          "default": 0.0887,
+          "default": 0.0892,
           "cells": {
             "期望": "B16"
           },
@@ -532,7 +559,7 @@
         {
           "name": "拳甲增",
           "kind": "number",
-          "default": 0.0852,
+          "default": 0.0854,
           "cells": {
             "期望": "B17"
           },
@@ -577,7 +604,7 @@
         {
           "name": "固伤加成",
           "kind": "number",
-          "default": 0.5,
+          "default": 0.6,
           "cells": {
             "期望": "B22"
           },
@@ -586,7 +613,7 @@
         {
           "name": "食物加成",
           "kind": "number",
-          "default": 200,
+          "default": 240,
           "cells": {
             "期望": "B23"
           },
@@ -595,7 +622,7 @@
         {
           "name": "食物加成#2",
           "kind": "number",
-          "default": 400,
+          "default": 480,
           "cells": {
             "期望": "B24"
           },
@@ -798,12 +825,12 @@
       "inert": {}
     },
     "裂石钧": {
-      "file": "裂石钧110阶竞速轴属性毕业率进阶计算器2.6.xlsx",
+      "file": "裂石钧110阶竞速轴属性毕业率进阶计算器3.0.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
           "kind": "number",
-          "default": 4006.7,
+          "default": 4473,
           "cells": {
             "期望": "B2"
           },
@@ -812,9 +839,18 @@
         {
           "name": "面板.外功.最大攻击",
           "kind": "number",
-          "default": 3083.9,
+          "default": 3339.6,
           "cells": {
             "期望": "C2"
+          },
+          "block": "面板"
+        },
+        {
+          "name": "面板.外功.穿透",
+          "kind": "number",
+          "default": 58.7,
+          "cells": {
+            "期望": "D2"
           },
           "block": "面板"
         },
@@ -830,7 +866,7 @@
         {
           "name": "面板.裂石.最大攻击",
           "kind": "number",
-          "default": 1370.3,
+          "default": 1519.3,
           "cells": {
             "期望": "C4"
           },
@@ -864,9 +900,18 @@
           "block": "面板"
         },
         {
+          "name": "面板.无相.最大攻击",
+          "kind": "number",
+          "default": 250.8,
+          "cells": {
+            "期望": "C7"
+          },
+          "block": "面板"
+        },
+        {
           "name": "精准率",
           "kind": "number",
-          "default": 0.9859,
+          "default": 0.9771,
           "cells": {
             "期望": "B8"
           },
@@ -875,7 +920,7 @@
         {
           "name": "会心率",
           "kind": "number",
-          "default": 0.7992,
+          "default": 0.7941,
           "cells": {
             "期望": "B9"
           },
@@ -884,7 +929,7 @@
         {
           "name": "会意率",
           "kind": "number",
-          "default": 0.0929,
+          "default": 0.0913,
           "cells": {
             "期望": "B10"
           },
@@ -920,7 +965,7 @@
         {
           "name": "全武增",
           "kind": "number",
-          "default": 0.0852,
+          "default": 0.0847,
           "cells": {
             "期望": "B15"
           },
@@ -929,7 +974,7 @@
         {
           "name": "首领增",
           "kind": "number",
-          "default": 0.0887,
+          "default": 0.0892,
           "cells": {
             "期望": "B16"
           },
@@ -938,7 +983,7 @@
         {
           "name": "陌刀增",
           "kind": "number",
-          "default": 0.0852,
+          "default": 0.0854,
           "cells": {
             "期望": "B17"
           },
@@ -983,7 +1028,7 @@
         {
           "name": "固伤加成",
           "kind": "number",
-          "default": 0.5,
+          "default": 0.6,
           "cells": {
             "期望": "B22"
           },
@@ -992,7 +1037,7 @@
         {
           "name": "食物加成",
           "kind": "number",
-          "default": 200,
+          "default": 240,
           "cells": {
             "期望": "B23"
           },
@@ -1001,7 +1046,7 @@
         {
           "name": "食物加成#2",
           "kind": "number",
-          "default": 400,
+          "default": 480,
           "cells": {
             "期望": "B24"
           },

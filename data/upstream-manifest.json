@@ -1,7 +1,7 @@
 {
   "_meta": {
     "source": "https://www.h9dh.cn/",
-    "syncedAt": "2026-10-04T10:01:12+00:00"
+    "syncedAt": "2026-10-05T21:16:17+00:00"
   },
   "files": [
     {
@@ -19,10 +19,10 @@
       "url": "/api/files/3/download"
     },
     {
-      "name": "牵丝翊110阶竞速轴属性毕业率进阶计算器2.6.xlsx",
-      "version": "2.6",
-      "size": 321783,
-      "updatedAt": "2026-09-10T18:31:20",
+      "name": "牵丝翊110阶竞速轴属性毕业率进阶计算器3.0.xlsx",
+      "version": "3.0",
+      "size": 321460,
+      "updatedAt": "2026-10-05T13:04:18",
       "url": "/api/files/4/download"
     },
     {
@@ -54,10 +54,10 @@
       "url": "/api/files/8/download"
     },
     {
-      "name": "破竹鸢110阶竞速轴属性毕业率进阶计算器2.8.xlsx",
-      "version": "2.8",
-      "size": 394530,
-      "updatedAt": "2026-09-10T17:21:52",
+      "name": "破竹鸢110阶竞速轴属性毕业率进阶计算器3.0.xlsx",
+      "version": "3.0",
+      "size": 395030,
+      "updatedAt": "2026-10-05T13:06:22",
       "url": "/api/files/9/download"
     },
     {
@@ -68,24 +68,24 @@
       "url": "/api/files/10/download"
     },
     {
-      "name": "裂石钧110阶竞速轴属性毕业率进阶计算器2.6.xlsx",
-      "version": "2.6",
-      "size": 343573,
-      "updatedAt": "2026-09-10T18:31:26",
+      "name": "裂石钧110阶竞速轴属性毕业率进阶计算器3.0.xlsx",
+      "version": "3.0",
+      "size": 343501,
+      "updatedAt": "2026-10-05T13:00:34",
       "url": "/api/files/11/download"
     },
     {
       "name": "鸣金影115阶竞速轴属性毕业率进阶计算器3.0.xlsx",
       "version": "3.0",
       "size": 751461,
-      "updatedAt": "2026-10-01T13:04:48",
+      "updatedAt": "2026-10-05T13:06:39",
       "url": "/api/files/1/download"
     },
     {
       "name": "鸣金虹115阶竞速轴属性毕业率进阶计算器3.1.xlsx",
       "version": "3.1",
       "size": 293992,
-      "updatedAt": "2026-10-01T13:11:20",
+      "updatedAt": "2026-10-05T13:06:31",
       "url": "/api/files/2/download"
     }
   ]
