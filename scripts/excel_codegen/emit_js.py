@@ -111,6 +111,12 @@ const ROUNDUP = (v, d) => {
 _CMP = {"=": "EQ", ">": "GT", ">=": "GE", "<": "LT", "<=": "LE"}
 
 
+def excel_fn(name: str) -> str:
+    """函数名归一:Excel 把兼容函数存成 _xlfn.XLOOKUP / _xlfn.IFERROR。"""
+    n = name.upper()
+    return n.removeprefix("_XLFN.")
+
+
 class Emitter:
     chunked = False  # True: 分块直线代码(OptimizingEmitter 用),False: 闭包表 + 逐格 try
 
@@ -157,7 +163,7 @@ class Emitter:
         if isinstance(n, Paren):
             return self._numeric(n.inner)
         if isinstance(n, Call):
-            return n.name.upper() in ("SUM", "MIN", "MAX", "ROUNDUP")
+            return excel_fn(n.name) in ("SUM", "MIN", "MAX", "ROUNDUP")
         return False
 
     def _njs(self, n: Node, sheet: str) -> str:
@@ -202,7 +208,7 @@ class Emitter:
         if isinstance(n, Call):
             # 每个实参只编译一次(不预编译整表:MIN/MAX 走 _njs,重复
             # 编译会导致子树被访问两次,统计失真且拖慢生成)
-            name = n.name.upper()
+            name = excel_fn(n.name)
             def a(k: int) -> str:
                 return self.js(n.args[k], sheet)
             if name == "IF":
@@ -217,7 +223,7 @@ class Emitter:
                 return f"Math.max({','.join(self._njs(arg, sheet) for arg in n.args)})"
             if name == "VLOOKUP":
                 return f"VL({a(0)},{a(1)},{a(2)})"
-            if name == "_XLFN.XLOOKUP":
+            if name == "XLOOKUP":
                 return f"XL({a(0)},{a(1)},{a(2)},{a(3)})"
             if name == "IFERROR":
                 return f"IFERR(()=>({a(0)}),{a(1)})"

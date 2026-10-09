@@ -259,7 +259,9 @@ class SheetScan:
 
 
 def flow_name(path: Path) -> str | None:
-    m = re.match(r"(.+?)110阶", path.stem)
+    """从标准毕业率计算器文件名取流派名。阶数随版本变(110/115/…);
+    DIY 与其它版式(如五普 DPS)返回 None,不进本映射。"""
+    m = re.match(r"(.+?)\d+阶竞速轴属性毕业率进阶计算器", path.stem)
     return m.group(1) if m else None
 
 

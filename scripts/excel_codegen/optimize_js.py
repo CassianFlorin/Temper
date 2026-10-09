@@ -27,7 +27,7 @@ from typing import Optional
 from openpyxl.utils import column_index_from_string, get_column_letter
 
 from formula_parser import Bool, Call, Node, Num, Ref, Str
-from emit_js import Emitter
+from emit_js import Emitter, excel_fn
 from workbook_graph import WorkbookGraph, load_graph, resolve_ref
 
 _EMPTY = object()  # 静态已知为空格(区别于「不可静态求值」的 None)
@@ -182,7 +182,7 @@ class OptimizingEmitter(Emitter):
 
     def js(self, n: Node, sheet: str) -> str:
         if isinstance(n, Call):
-            name = n.name.upper()
+            name = excel_fn(n.name)
             if name == "VLOOKUP":
                 self.stat_vl += 1
                 folded = self._devirt_vlookup(n, sheet)
@@ -191,7 +191,7 @@ class OptimizingEmitter(Emitter):
                 self.stat_vl_kept += 1
                 self._throws += 1
                 return super().js(n, sheet)
-            if name == "_XLFN.XLOOKUP":
+            if name == "XLOOKUP":
                 self.stat_xl += 1
                 folded = self._devirt_xlookup(n, sheet)
                 if folded is not None:
