@@ -1,10 +1,10 @@
 """JS 生成器:依赖图 → 自包含可执行 JS。
 
 生成物结构:
-  1. 运行时前导(RUNTIME):Excel 语义的 9 个函数 + 类型强转。
+  1. 运行时前导(RUNTIME):Excel 语义的函数 + 类型强转。
      实测语料形态(见 git log / anatomy):IF 恒 3 参、VLOOKUP 恒
-     精确匹配、XLOOKUP 恒 4 参且查找键可为区间(数组语义仅此一处)、
-     比较符只有 = > < >=、无字符串拼接无乘方。
+     精确匹配、XLOOKUP 恒 4 参且查找键可为区间、SUMPRODUCT 为
+     (区间=标量)*区间 单参、比较符只有 = > < >=、无字符串拼接无乘方。
   2. 单元格槽数组 x:每个非空格一个下标,字面量格直接赋值。
   3. 区间常量:{c: 列数, i: Int32 下标数组(行主序, -1=空格)},全簿去重。
   4. F:拓扑序的 (下标, 求值闭包) 列表,逐条 try 执行,错误落入
@@ -106,6 +106,54 @@ const ROUNDUP = (v, d) => {
   const m = 10 ** (N(d) | 0), u = N(v);
   return u >= 0 ? Math.ceil(u * m) / m : -Math.ceil(-u * m) / m;
 };
+function numsOf(a) {
+  if (a && a.i) {
+    const i = a.i, out = new Array(i.length);
+    for (let k = 0; k < i.length; k++) {
+      const j = i[k], v = j < 0 ? null : x[j];
+      out[k] = typeof v === "number" ? v : v === true ? 1 : 0;
+    }
+    return out;
+  }
+  if (Array.isArray(a)) {
+    const out = new Array(a.length);
+    for (let k = 0; k < a.length; k++) {
+      const v = a[k];
+      out[k] = typeof v === "number" ? v : v === true ? 1 : 0;
+    }
+    return out;
+  }
+  return [typeof a === "number" ? a : a === true ? 1 : 0];
+}
+function EQA(rg, key) {
+  const ks = typeof key === "string" ? key.toLowerCase() : key;
+  const i = rg.i, out = new Array(i.length);
+  for (let k = 0; k < i.length; k++) {
+    const j = i[k], v = j < 0 ? null : x[j];
+    const hit = typeof v === "string"
+      ? (typeof ks === "string" && v.toLowerCase() === ks)
+      : v === key;
+    out[k] = hit ? 1 : 0;
+  }
+  return out;
+}
+function MULA(a, b) {
+  const A = numsOf(a), B = numsOf(b), n = Math.min(A.length, B.length);
+  const out = new Array(n);
+  for (let k = 0; k < n; k++) out[k] = A[k] * B[k];
+  return out;
+}
+function SP(...as) {
+  const arrs = as.map(numsOf);
+  const n = arrs.reduce((m, a) => Math.min(m, a.length), arrs[0].length);
+  let s = 0;
+  for (let k = 0; k < n; k++) {
+    let p = 1;
+    for (let t = 0; t < arrs.length; t++) p *= arrs[t][k];
+    s += p;
+  }
+  return s;
+}
 """
 
 _CMP = {"=": "EQ", ">": "GT", ">=": "GE", "<": "LT", "<=": "LE"}
@@ -163,12 +211,27 @@ class Emitter:
         if isinstance(n, Paren):
             return self._numeric(n.inner)
         if isinstance(n, Call):
-            return excel_fn(n.name) in ("SUM", "MIN", "MAX", "ROUNDUP")
+            return excel_fn(n.name) in ("SUM", "MIN", "MAX", "ROUNDUP", "SUMPRODUCT")
         return False
 
     def _njs(self, n: Node, sheet: str) -> str:
         s = self.js(n, sheet)
         return s if self._numeric(n) else f"N({s})"
+
+    def _array_js(self, n: Node, sheet: str) -> str:
+        """SUMPRODUCT 参数:区间比较/乘法按数组语义,不走标量 EQ/N()。"""
+        if isinstance(n, Paren):
+            return self._array_js(n.inner, sheet)
+        if isinstance(n, Bin):
+            if n.op == "=":
+                left_r = isinstance(n.left, Ref) and n.left.end is not None
+                right_r = isinstance(n.right, Ref) and n.right.end is not None
+                if left_r ^ right_r:
+                    rg, key = (n.left, n.right) if left_r else (n.right, n.left)
+                    return f"EQA({self.js(rg, sheet)},{self.js(key, sheet)})"
+            if n.op == "*":
+                return f"MULA({self._array_js(n.left, sheet)},{self._array_js(n.right, sheet)})"
+        return self.js(n, sheet)
 
     def js(self, n: Node, sheet: str) -> str:
         if isinstance(n, Num):
@@ -229,6 +292,8 @@ class Emitter:
                 return f"IFERR(()=>({a(0)}),{a(1)})"
             if name == "ROUNDUP":
                 return f"ROUNDUP({a(0)},{a(1)})"
+            if name == "SUMPRODUCT":
+                return f"SP({','.join(self._array_js(arg, sheet) for arg in n.args)})"
             raise ValueError(f"未实现的函数 {n.name}")
         if isinstance(n, Err):
             # 运行时 ERR() 抛错,由逐格 try/catch 捕获为 {__err:code},
