@@ -34,6 +34,29 @@ const N = (v) => typeof v === "number" ? v : v == null ? 0
   : v === true ? 1 : v === false ? 0 : ERR("#VALUE!");
 const B = (v) => typeof v === "boolean" ? v
   : typeof v === "number" ? v !== 0 : v == null ? false : ERR("#VALUE!");
+function AND(...as) {
+  let result = true, count = 0;
+  const consume = (v, referenced) => {
+    if (v && v.__err) ERR(v.__err);
+    // Excel 忽略引用/数组中的文本与空格;直接实参仍按逻辑值转换。
+    if (referenced && (v == null || typeof v === "string")) return;
+    const value = B(v);
+    result = result && value;
+    count++;
+  };
+  // 必须检查全部实参:即使已有 FALSE,后续 Excel 错误仍要传播。
+  for (const a of as) {
+    if (a && a.i) {
+      for (const j of a.i) consume(j < 0 ? null : x[j], true);
+    } else if (Array.isArray(a)) {
+      for (const v of a) consume(v, true);
+    } else {
+      consume(a, false);
+    }
+  }
+  if (!count) ERR("#VALUE!");
+  return result;
+}
 const EQ = (a, b) => {
   if (a == null) a = typeof b === "string" ? "" : 0;
   if (b == null) b = typeof a === "string" ? "" : 0;
@@ -276,6 +299,18 @@ class Emitter:
                 return self.js(n.args[k], sheet)
             if name == "IF":
                 return f"(B({a(0)})?{a(1)}:{a(2)})"
+            if name == "AND":
+                args = []
+                for arg in n.args:
+                    # 单格引用也保留引用身份,才能忽略文本/空格而非强转。
+                    ref = arg
+                    while isinstance(ref, Paren):
+                        ref = ref.inner
+                    args.append(
+                        self.range_const(resolve_ref(ref, sheet, self.g.sheet_extent))
+                        if isinstance(ref, Ref) else self.js(arg, sheet)
+                    )
+                return f"AND({','.join(args)})"
             if name == "OR":
                 return "(" + "||".join(f"B({self.js(arg, sheet)})" for arg in n.args) + ")"
             if name == "SUM":

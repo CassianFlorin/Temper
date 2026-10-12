@@ -4,7 +4,7 @@
 ($R25 技能名、S25:AL25 buff 名)与查找列(武学奇术!A:A、增益!A:A)
 全部是静态字面量,与用户输入无关。因此行匹配可以在生成期完成,
 运行时的线性扫描折叠为直接下标引用;去虚化后子树若不再含可抛错的
-动态 VLOOKUP,包裹它的 IFERROR 一并剥掉。
+动态 VLOOKUP 或 AND,包裹它的 IFERROR 一并剥掉。
 
 不可折叠的边界由「输入格集合」显式给出:输入格及依赖它的一切保持
 动态。默认输入区取 期望/RD 表 A1:I26 的字面量格(面板、三率、开关、
@@ -56,7 +56,7 @@ class OptimizingEmitter(Emitter):
 
     def __init__(self, g: WorkbookGraph, inputs: set[tuple[str, str]] | None = None):
         super().__init__(g, default_inputs(g) if inputs is None else inputs)
-        self._throws = 0          # 动态 VLOOKUP 计数,IFERROR 剥除的依据
+        self._throws = 0          # 可抛错的动态调用计数,IFERROR 剥除的依据
         self.stat_vl = self.stat_vl_kept = 0
         self.stat_xl = self.stat_xl_kept = 0
         self.stat_iferr_dropped = 0
@@ -183,6 +183,10 @@ class OptimizingEmitter(Emitter):
     def js(self, n: Node, sheet: str) -> str:
         if isinstance(n, Call):
             name = excel_fn(n.name)
+            if name == "AND":
+                # AND 的错误/空引用可抛错,外层 IFERROR 必须保留。
+                self._throws += 1
+                return super().js(n, sheet)
             if name == "VLOOKUP":
                 self.stat_vl += 1
                 folded = self._devirt_vlookup(n, sheet)

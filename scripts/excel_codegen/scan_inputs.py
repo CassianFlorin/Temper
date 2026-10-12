@@ -15,7 +15,7 @@
   R3 怪物/杂项  H 列标签 + I 列字面量 -> {标签}
   R4 团队增益   「团队增益」锚点下方 C 标签 + D √/× -> 团队增益.{标签}
   R5 开关对     E15:E26 标签 + F 列字面量 -> {标签}
-  R6 纵向心法   任意「…心法」标签,取正下方文本 -> {标签}
+  R6 纵向选项   任意「…心法」或「输出模式」标签,取正下方文本 -> {标签}
   R7 属性/套装  F1:F3 标签 + G 列字面量 -> {标签}
   R8 武器键     F4:F7 中 G 侧为公式的文本键,排除固定词
                 (单体奇术/群体奇术)-> 武器1/武器2
@@ -127,7 +127,7 @@ class SheetScan:
         self.r2_scalars()
         self.r3_monster()
         self.r4_team()
-        self.r6_xinfa()   # 先于 R5:心法值格(断石之构等)是文本,别被 R5 当标签认领
+        self.r6_vertical_options()  # 先于 R5:纵向选项值不能被当成 E 列标签认领
         self.r5_ef_pairs()
         self.r7_fg_pairs()
         self.r8_weapon_keys()
@@ -203,14 +203,14 @@ class SheetScan:
             if (6, r) in self.literals:
                 self.add_field(label, 6, r, "开关")
 
-    def r6_xinfa(self) -> None:
+    def r6_vertical_options(self) -> None:
         for (c, r), v in sorted(self.literals.items(), key=lambda kv: (kv[0][1], kv[0][0])):
-            if not (isinstance(v, str) and v.endswith("心法")):
+            if not (isinstance(v, str) and (v.endswith("心法") or v == "输出模式")):
                 continue
             self.claim((c, r))  # 下方为公式/空时(RD 联动)标签仍认领
             below = self.text(c, r + 1)
             if below and (c, r + 1) not in self.claimed:
-                self.add_field(v, c, r + 1, "心法")
+                self.add_field(v, c, r + 1, "开关" if v == "输出模式" else "心法")
 
     def r7_fg_pairs(self) -> None:
         for r in range(1, 4):

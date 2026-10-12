@@ -2,7 +2,7 @@
 
 对 dist/flows/ 每个模块:
   1. reset + evaluate:输出与 xlsx 缓存值一致(相对容忍 1e-9)
-  2. set(战斗时间, ×1.25):ADPS 与 RDPS 必须都变(RD 联动生效)
+  2. 扰动战斗时间或输出模式:ADPS 与 RDPS 必须都变(RD 联动生效)
   3. reset + evaluate:与第 1 步位级一致(reset 完整还原)
 
 用法: python verify_runtime.py [dist/flows]
@@ -20,12 +20,23 @@ const [modPath] = process.argv.slice(1);
 const m = await import("file://" + modPath);
 m.reset();
 const r1 = m.evaluate();
-const t = m.fields()["战斗时间"].default;
-m.set("战斗时间", t * 1.25);
+const fields = m.fields();
+let perturbed = "战斗时间", value;
+if (fields[perturbed]) {
+  value = fields[perturbed].default * 1.25;
+} else {
+  // 裂石钧 3.1 的战斗时间由输出模式公式派生,只能扰动其真实输入。
+  perturbed = "输出模式";
+  const mode = fields[perturbed]?.default;
+  if (mode !== "陌刀" && mode !== "唐刀")
+    throw new Error("缺少可验收的战斗时间或输出模式输入");
+  value = mode === "陌刀" ? "唐刀" : "陌刀";
+}
+m.set(perturbed, value);
 const r2 = m.evaluate();
 m.reset();
 const r3 = m.evaluate();
-console.log(JSON.stringify({r1, r2, r3, meta: m.meta}));
+console.log(JSON.stringify({r1, r2, r3, meta: m.meta, perturbed}));
 """
 
 
@@ -49,7 +60,7 @@ def verify(mod: Path) -> bool:
             problems.append(f"默认输出 {k}: 得 {r1[k]!r} 期望 {want!r}")
     for k in ("ADPS", "RDPS"):
         if close(r2[k], r1[k]):
-            problems.append(f"扰动战斗时间后 {k} 未变化(RD 联动断了?)")
+            problems.append(f"扰动{r['perturbed']}后 {k} 未变化(RD 联动断了?)")
     for k in r1:
         if r3[k] != r1[k]:
             problems.append(f"reset 后 {k} 未还原: {r3[k]!r} != {r1[k]!r}")

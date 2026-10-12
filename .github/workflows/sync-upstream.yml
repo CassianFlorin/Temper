@@ -44,6 +44,10 @@ jobs:
       - name: 安装依赖
         run: pip install -r scripts/excel_codegen/requirements.txt
 
+      # 小型语义回归先跑,即使上游无更新也能检查发射器的错误传播。
+      - name: 公式运行时回归
+        run: python -m unittest discover -s scripts/excel_codegen -p 'test_*.py'
+
       - name: 抓取清单并按需下载
         id: sync
         run: python scripts/sync_upstream.py ${{ inputs.force && '--force' || '' }}
@@ -83,6 +87,18 @@ jobs:
         with:
           name: flows
           path: dist/flows/
+          retention-days: 3
+
+      # deploy 的 checkout 固定在触发时提交,同步生成的元数据也必须传递,
+      # 避免新模块搭配旧 manifest / 输入映射。
+      - name: 上传已验收的同步元数据
+        if: steps.sync.outputs.changed == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: upstream-metadata
+          path: |
+            data/upstream-manifest.json
+            data/flow-inputs.json
           retention-days: 3
 
       - name: 提交 manifest 与输入格摘要
@@ -130,6 +146,11 @@ jobs:
         with:
           name: flows
           path: dist/flows/
+      - name: 取 sync 作业已验收的同步元数据
+        uses: actions/download-artifact@v8
+        with:
+          name: upstream-metadata
+          path: data/
       - name: 组装站点
         run: python scripts/build_site.py
       - name: 部署 Cloudflare Pages
