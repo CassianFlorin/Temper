@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-10-12T02:18:35+00:00",
+    "generatedAt": "2026-10-14T18:04:31+00:00",
     "generator": "scripts/excel_codegen/scan_inputs.py",
     "note": "字段名 -> 期望/RD 单元格坐标。unmapped 必须为空或逐项有人工解释;新版式出现未认领格时先补规则再发布。"
   },
@@ -403,12 +403,12 @@
       "inert": {}
     },
     "牵丝翊": {
-      "file": "牵丝翊115阶竞速轴属性毕业率进阶计算器3.0.xlsx",
+      "file": "牵丝翊115阶竞速轴属性毕业率进阶计算器3.1.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
           "kind": "number",
-          "default": 4512,
+          "default": 4473,
           "cells": {
             "期望": "B2"
           },
@@ -417,7 +417,7 @@
         {
           "name": "面板.外功.最大攻击",
           "kind": "number",
-          "default": 3417.6,
+          "default": 3339.6,
           "cells": {
             "期望": "C2"
           },
@@ -426,18 +426,9 @@
         {
           "name": "面板.外功.穿透",
           "kind": "number",
-          "default": 58.7,
+          "default": 58.68,
           "cells": {
             "期望": "D2"
-          },
-          "block": "面板"
-        },
-        {
-          "name": "面板.外功.伤害加成",
-          "kind": "number",
-          "default": 0.025,
-          "cells": {
-            "期望": "E2"
           },
           "block": "面板"
         },
@@ -453,7 +444,7 @@
         {
           "name": "面板.牵丝.最大攻击",
           "kind": "number",
-          "default": 1475,
+          "default": 1395.8,
           "cells": {
             "期望": "C5"
           },
@@ -487,18 +478,9 @@
           "block": "面板"
         },
         {
-          "name": "面板.无相.最大攻击",
-          "kind": "number",
-          "default": 250.8,
-          "cells": {
-            "期望": "C7"
-          },
-          "block": "面板"
-        },
-        {
           "name": "精准率",
           "kind": "number",
-          "default": 0.9771,
+          "default": 0.9859,
           "cells": {
             "期望": "B8"
           },
@@ -507,7 +489,7 @@
         {
           "name": "会心率",
           "kind": "number",
-          "default": 0.7941,
+          "default": 0.7655,
           "cells": {
             "期望": "B9"
           },
@@ -516,7 +498,7 @@
         {
           "name": "会意率",
           "kind": "number",
-          "default": 0.0929,
+          "default": 0.0913,
           "cells": {
             "期望": "B10"
           },
@@ -577,38 +559,29 @@
           "block": "标量"
         },
         {
-          "name": "单体奇术增",
+          "name": "奇术增",
           "kind": "number",
-          "default": 0,
+          "default": 0.2677,
           "cells": {
             "期望": "B19"
           },
           "block": "标量"
         },
         {
-          "name": "群体奇术增",
+          "name": "特殊技定音",
           "kind": "number",
-          "default": 0,
+          "default": 0.3206,
           "cells": {
             "期望": "B20"
           },
           "block": "标量"
         },
         {
-          "name": "特殊技定音",
-          "kind": "number",
-          "default": 0.32,
-          "cells": {
-            "期望": "B21"
-          },
-          "block": "标量"
-        },
-        {
           "name": "固伤加成",
           "kind": "number",
-          "default": 0.5,
+          "default": 0.6,
           "cells": {
-            "期望": "B22"
+            "期望": "B21"
           },
           "block": "标量"
         },
@@ -617,7 +590,7 @@
           "kind": "number",
           "default": 240,
           "cells": {
-            "期望": "B23"
+            "期望": "B22"
           },
           "block": "标量"
         },
@@ -626,7 +599,7 @@
           "kind": "number",
           "default": 480,
           "cells": {
-            "期望": "B24"
+            "期望": "B23"
           },
           "block": "标量"
         },
@@ -643,7 +616,7 @@
         {
           "name": "战斗时间",
           "kind": "number",
-          "default": 100.2,
+          "default": 84.9,
           "cells": {
             "期望": "I8"
           },
@@ -707,12 +680,13 @@
         {
           "name": "团队增益.樽",
           "kind": "toggle",
-          "default": "×",
+          "default": "√",
           "cells": {
             "期望": "D22",
             "RD": "D22"
           },
-          "block": "团队增益"
+          "block": "团队增益",
+          "rd_default": "×"
         },
         {
           "name": "第三心法",
@@ -726,7 +700,7 @@
         {
           "name": "第四心法",
           "kind": "text",
-          "default": "弦墨篇",
+          "default": "断石之构",
           "cells": {
             "期望": "E24"
           },
@@ -2370,7 +2344,7 @@
         {
           "name": "面板.外功.穿透",
           "kind": "number",
-          "default": 58.7,
+          "default": 58.68,
           "cells": {
             "期望": "D2"
           },
@@ -2418,15 +2392,6 @@
           "default": 79.2,
           "cells": {
             "期望": "B7"
-          },
-          "block": "面板"
-        },
-        {
-          "name": "面板.无相.最大攻击",
-          "kind": "number",
-          "default": 250.8,
-          "cells": {
-            "期望": "C7"
           },
           "block": "面板"
         },
@@ -2521,7 +2486,7 @@
           "block": "标量"
         },
         {
-          "name": "单体奇术增",
+          "name": "奇术增",
           "kind": "number",
           "default": 0,
           "cells": {
@@ -2530,20 +2495,11 @@
           "block": "标量"
         },
         {
-          "name": "群体奇术增",
-          "kind": "number",
-          "default": 0,
-          "cells": {
-            "期望": "B20"
-          },
-          "block": "标量"
-        },
-        {
           "name": "蓄力技定音",
           "kind": "number",
-          "default": 0.32,
+          "default": 0.3206,
           "cells": {
-            "期望": "B21"
+            "期望": "B20"
           },
           "block": "标量"
         },
@@ -2552,7 +2508,7 @@
           "kind": "number",
           "default": 0.6,
           "cells": {
-            "期望": "B22"
+            "期望": "B21"
           },
           "block": "标量"
         },
@@ -2561,7 +2517,7 @@
           "kind": "number",
           "default": 240,
           "cells": {
-            "期望": "B23"
+            "期望": "B22"
           },
           "block": "标量"
         },
@@ -2570,7 +2526,7 @@
           "kind": "number",
           "default": 480,
           "cells": {
-            "期望": "B24"
+            "期望": "B23"
           },
           "block": "标量"
         },
@@ -2587,18 +2543,9 @@
         {
           "name": "战斗时间",
           "kind": "number",
-          "default": 100.8,
+          "default": 85.7,
           "cells": {
             "期望": "I8"
-          },
-          "block": "怪物/杂项"
-        },
-        {
-          "name": "机制时间",
-          "kind": "number",
-          "default": 50,
-          "cells": {
-            "期望": "I18"
           },
           "block": "怪物/杂项"
         },
@@ -2670,12 +2617,13 @@
         {
           "name": "团队增益.樽",
           "kind": "toggle",
-          "default": "×",
+          "default": "√",
           "cells": {
             "期望": "D22",
             "RD": "D22"
           },
-          "block": "团队增益"
+          "block": "团队增益",
+          "rd_default": "×"
         },
         {
           "name": "第三心法",
@@ -2771,7 +2719,7 @@
       "inert": {}
     },
     "裂石威": {
-      "file": "裂石威115阶竞速轴属性毕业率进阶计算器3.2.xlsx",
+      "file": "裂石威115阶竞速轴属性毕业率进阶计算器3.3.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
@@ -3013,32 +2961,35 @@
         {
           "name": "团队增益.虹",
           "kind": "toggle",
-          "default": "×",
+          "default": "√",
           "cells": {
             "期望": "D18",
             "RD": "D18"
           },
-          "block": "团队增益"
+          "block": "团队增益",
+          "rd_default": "×"
         },
         {
           "name": "团队增益.钧",
           "kind": "toggle",
-          "default": "×",
+          "default": "√",
           "cells": {
             "期望": "D19",
             "RD": "D19"
           },
-          "block": "团队增益"
+          "block": "团队增益",
+          "rd_default": "×"
         },
         {
           "name": "团队增益.影",
           "kind": "toggle",
-          "default": "×",
+          "default": "√",
           "cells": {
             "期望": "D20",
             "RD": "D20"
           },
-          "block": "团队增益"
+          "block": "团队增益",
+          "rd_default": "×"
         },
         {
           "name": "团队增益.翊",
@@ -3488,7 +3439,7 @@
       "inert": {}
     },
     "鸣金影": {
-      "file": "鸣金影115阶竞速轴属性毕业率进阶计算器3.0.xlsx",
+      "file": "鸣金影115阶竞速轴属性毕业率进阶计算器3.1.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
@@ -3502,7 +3453,7 @@
         {
           "name": "面板.外功.最大攻击",
           "kind": "number",
-          "default": 7187.6,
+          "default": 7191.6,
           "cells": {
             "期望": "C2"
           },
@@ -3511,7 +3462,7 @@
         {
           "name": "面板.外功.穿透",
           "kind": "number",
-          "default": 63.8,
+          "default": 63.78,
           "cells": {
             "期望": "D2"
           },
@@ -3655,7 +3606,7 @@
         {
           "name": "剑增",
           "kind": "number",
-          "default": 0.0852,
+          "default": 0.0854,
           "cells": {
             "期望": "B17"
           },
@@ -3691,7 +3642,7 @@
         {
           "name": "流血定音",
           "kind": "number",
-          "default": 0.32,
+          "default": 0.3206,
           "cells": {
             "期望": "B21"
           },
@@ -3700,7 +3651,7 @@
         {
           "name": "固伤加成",
           "kind": "number",
-          "default": 0.5,
+          "default": 0.6,
           "cells": {
             "期望": "B22"
           },
@@ -3709,7 +3660,7 @@
         {
           "name": "食物加成",
           "kind": "number",
-          "default": 200,
+          "default": 240,
           "cells": {
             "期望": "B23"
           },
@@ -3718,7 +3669,7 @@
         {
           "name": "食物加成#2",
           "kind": "number",
-          "default": 400,
+          "default": 480,
           "cells": {
             "期望": "B24"
           },
@@ -3746,7 +3697,7 @@
         {
           "name": "战斗时间",
           "kind": "number",
-          "default": 91.5,
+          "default": 89.9,
           "cells": {
             "期望": "I8"
           },
@@ -3899,7 +3850,7 @@
       "inert": {}
     },
     "鸣金虹": {
-      "file": "鸣金虹115阶竞速轴属性毕业率进阶计算器3.1.xlsx",
+      "file": "鸣金虹115阶竞速轴属性毕业率进阶计算器3.2.xlsx",
       "fields": [
         {
           "name": "面板.外功.最小攻击",
@@ -3922,7 +3873,7 @@
         {
           "name": "面板.外功.穿透",
           "kind": "number",
-          "default": 63.8,
+          "default": 63.78,
           "cells": {
             "期望": "D2"
           },
@@ -4102,7 +4053,7 @@
         {
           "name": "蓄力技定音",
           "kind": "number",
-          "default": 0.32,
+          "default": 0.3206,
           "cells": {
             "期望": "B21"
           },
@@ -4168,12 +4119,13 @@
         {
           "name": "团队增益.尘",
           "kind": "toggle",
-          "default": "×",
+          "default": "√",
           "cells": {
             "期望": "D17",
             "RD": "D17"
           },
-          "block": "团队增益"
+          "block": "团队增益",
+          "rd_default": "×"
         },
         {
           "name": "团队增益.钧",
@@ -4206,7 +4158,7 @@
         {
           "name": "团队增益.樽",
           "kind": "toggle",
-          "default": "×",
+          "default": "√",
           "cells": {
             "期望": "D22"
           },
@@ -4215,7 +4167,7 @@
         {
           "name": "团队增益.霖",
           "kind": "toggle",
-          "default": "√",
+          "default": "×",
           "cells": {
             "期望": "D23"
           },
