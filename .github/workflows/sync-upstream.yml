@@ -1,4 +1,4 @@
-# 上游数据定时同步:h9dh.cn 出新表 -> 下载 -> 五道验收 -> 全绿落地 -> 部署
+# 上游数据定时同步:yyslsxzs.cn(原 h9dh.cn)出新表 -> 下载 -> 五道验收 -> 全绿落地 -> 部署
 #
 # 无变化的调度只发一次几 KB 的首页请求即退出,对上游站零打扰。
 # manifest 只在验收全绿后 commit;验收失败自动开 issue(带 label 去重)。
@@ -80,7 +80,7 @@ jobs:
           python verify_runtime.py
 
       # 构建产物直接传给 deploy,deploy 不再重新下载上游 xlsx:
-      # 少一次对 h9dh.cn 的全量抓取,也少一个瞬时网络失败窗口
+      # 少一次对上游站的全量抓取,也少一个瞬时网络失败窗口
       - name: 上传运行时模块产物
         if: steps.sync.outputs.changed == 'true'
         uses: actions/upload-artifact@v7

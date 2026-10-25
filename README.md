@@ -15,7 +15,7 @@
 **不手写伤害公式。** 上游是社区维护的 Excel 计算器(一个流派一个 xlsx,数值绑定竞速轴),Temper 把它们机械地转译成浏览器可执行的 JS:
 
 ```
-上游 xlsx(h9dh.cn,社区维护)
+上游 xlsx(yyslsxzs.cn,社区维护;原 h9dh.cn)
   │  scripts/sync_upstream.py        清单比对,变化才下载
   ▼
 公式解析(scripts/excel_codegen/formula_parser.py)
@@ -41,7 +41,7 @@ dist/flows/*.mjs   每流派一个 ESM:set(字段,值) / evaluate()
 
 ## 数据来源与致谢
 
-全部数值与竞速轴来自 **[燕云小助手 h9dh.cn](https://www.h9dh.cn/)** 分发的社区计算器,作者 **BiliBili@片雲**。Temper 只做转译与网页化,公式的维护权始终在社区表格里;上游更新版本后,管线重跑即可跟上。
+全部数值与竞速轴来自 **[燕云小助手 yyslsxzs.cn](https://yyslsxzs.cn/)**(原 h9dh.cn)分发的社区计算器,作者 **BiliBili@片雲**。Temper 只做转译与网页化,公式的维护权始终在社区表格里;上游更新版本后,管线重跑即可跟上。
 
 出于对社区作者分发权的尊重,**xlsx 原件不进本仓库**(`upstream/` 在 .gitignore 中),CI 按 `data/upstream-manifest.json` 记录的版本现拉。同步频率为每天两次、无变化时仅请求一次几 KB 的清单页。
 

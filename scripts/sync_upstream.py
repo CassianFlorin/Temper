@@ -1,4 +1,4 @@
-"""上游同步:抓 h9dh.cn 文件清单,比对版本,变化时下载 xlsx。
+"""上游同步:抓 yyslsxzs.cn 文件清单,比对版本,变化时下载 xlsx。
 
 数据源是 /api/home JSON 接口(几 KB,自带每个文件的版本号/更新时间/
 大小),无变化时只有这一次请求,对上游站零打扰。
@@ -32,7 +32,11 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 MANIFEST = ROOT / "data" / "upstream-manifest.json"
 UPSTREAM = ROOT / "upstream"
-BASE = "https://www.h9dh.cn/"
+# 社区站原域名 h9dh.cn / www.h9dh.cn。2026-10-25 起这两台主机名
+# 仍解析到同一 IP,但 TLS 证书 SAN 只有 yyslsxzs.cn 与 www.yyslsxzs.cn
+# (CN=yyslsxzs.cn)。继续请求旧域名会在拉清单时 CERTIFICATE_VERIFY_FAILED,
+# sync 作业失败,deploy 被跳过。清单与下载都走证书覆盖的域名。
+BASE = "https://yyslsxzs.cn/"
 UA = "TemperSync/1.0 (open-source calculator pipeline; contact via repo issues)"
 
 # 比对用的稳定字段;id/category 等站点内部值不参与比对
